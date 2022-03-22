@@ -9,7 +9,6 @@
     background-color: rgba(172, 175, 176, 0.07);
 
 }
-
 /*cart discount */
   .shipping-discount {
     height: 30px;
@@ -34,7 +33,7 @@
 }
 
 .bg-custom {
- 
+
   background-color: #E3106E;
 
 }
@@ -62,7 +61,7 @@
      font-size: 50px;
      line-height: 100px;
  }
- 
+
  .shopping-now
  {
      color: #e3106e;
@@ -129,11 +128,11 @@ z-index: 100;
 
 }
 .login-headline {
- 
+
   font-size: 2em;
   text-transform: uppercase;
 
-  
+
 
 }
 
@@ -164,7 +163,7 @@ width: 100%;
   height : 40px;
   /* display: inline; */
   border: 1px solid #e6e6e6;
-  
+
 }
 
 .qty-minus {
@@ -223,8 +222,8 @@ padding-bottom : 30px;
 }
 
 .order-heading h2{
- color : #32BEA6;  
- margin-bottom: 20px; 
+ color : #32BEA6;
+ margin-bottom: 20px;
 }
 .order-body {
 
@@ -288,11 +287,11 @@ display : block !important;
 /* menu active bg  */
 
 /* color radio button design  */
-.btn i.fas {    			
-	opacity: 0;				
+.btn i.fas {
+	opacity: 0;
 }
-.btn.active i.fas {				
-	opacity: 1;				
+.btn.active i.fas {
+	opacity: 1;
 }
 /* color radio button design  */
 
@@ -325,3 +324,14 @@ color: white;
 /* checkout form design  */
 
 
+/* right side sign in button design*/
+
+.signin-button{
+    border: none !important;
+    background: #ff686e;
+    float: right;
+    color: white;
+    padding: 17px 45px;
+    font-weight: bold;
+    font-size: 14px;
+}

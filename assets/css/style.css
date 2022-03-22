@@ -1,5 +1,5 @@
 /* ---------------------------------------------------------------------------------------
-* 
+*
 * Template:     Ecommerce Website
 * Author:       abc
 * URL:          https://www.abc.com
@@ -8,13 +8,13 @@
 
 /* ==================================================
 |
-|  Header 
+|  Header
 |  sidebar Menu
 |  Category
 |  subscribe
 |  Offer Product
 |  footer
-|  
+|
 ================================================== */
 
 .display-b {
@@ -42,8 +42,8 @@
 header
 ===================*/
 .header {
-    height: 70px;
-    line-height: 70px;
+    height: 55px;
+    /*line-height: 70px;*/
     width: 100%;
     z-index: 99;
 }
@@ -62,17 +62,18 @@ header
 
 .header .left-menu-toggle {
     text-align: center;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 .header .left-menu-toggle i {
-    color: #fff;
+    color: #000;
     font-size: 30px;
+    font-weight: 600;
 }
 
 .header .logo img {
     width: 164px;
-    margin-top: 5px;
+    /*margin-top: 5px;*/
 }
 
 .header .search {
@@ -100,7 +101,7 @@ header
     outline: medium none;
     padding: 0 60px 0 15px;
     width: 100%;
-    margin-top: 2px;
+    margin-top: 8px;
     background-color: #fff;
     border-radius: 3px;
 }
@@ -2051,7 +2052,7 @@ Breadcrumb
     .forget-password .form {
         border-top: none;
     }
-    .category .box { 
+    .category .box {
         margin: 0px 0px 15px 0px;
     }
     /* .home-category {

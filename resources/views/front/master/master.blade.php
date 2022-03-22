@@ -72,7 +72,8 @@ $google_analytics = googleAnalytics();
 <body id="app_body" >
   <div id="front-wrapper">
     <header class="header theme-background">
-        <div class="container-fluid">
+{{--        "container-fluid" class change--}}
+        <div class="">
             <div class="row">
                 <div class="col col-lg-1 col-sm-1">
                     <div class="left-menu-toggle">
@@ -112,19 +113,22 @@ $google_analytics = googleAnalytics();
             </div>
             <div class="d-none d-sm-block col-3 col-lg-3 col-sm-3 text-center">
                     <div class="user-menu">
-                        <a href="#">
-                            <i class="lni lni-user" style="font-size: 20px"></i>
+                        <a href="{{ route('login') }}">
+                            <button class="signin-button" >Sign In</button>
                         </a>
                         <ul class="dropdown-menu1">
                             @auth
                             <li><a href="{{ route('user.profile') }}"><span>Profile</span></a></li>
                             <li><a href="{{ route('user.logout') }}"><span>Logout</span></a></li>
                             @endauth
-                            @guest
-                            <li><a href="{{ route('login') }}"><span>Sign in</span></a></li>
-                            <li><a href="{{ route('register') }}"><span>Sign up</span></a></li>
-                            @endguest
-                            <li><a href="{{ route('order.track') }}">Track Order</a></li>
+
+{{--                            comment here login and registration url--}}
+
+{{--                            @guest--}}
+{{--                            <li><a href="{{ route('login') }}"><span>Sign in</span></a></li>--}}
+{{--                            <li><a href="{{ route('register') }}"><span>Sign up</span></a></li>--}}
+{{--                            @endguest--}}
+{{--                            <li><a href="{{ route('order.track') }}">Track Order</a></li>--}}
                         </ul>
                     </div>
             </div>

@@ -24,4 +24,4 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/responsive.css') }}">
      <!--responsive css-->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/custom.css') }}">
-    <!--google font css-->
+
