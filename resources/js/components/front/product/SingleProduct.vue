@@ -24,13 +24,11 @@
       <span class="regular-price" v-else
         >{{ currency.symbol }}{{ product.selling_price }}</span
       >
-
       <span
         class="discount-price"
         v-if="product.discount_status == 1 && product.discount_amount > 0"
         >{{ currency.symbol }}{{ product.selling_price | formatPrice }}</span
       >
-
       <div class="item-cart" v-if="havingProduct">
         <a
           title="Remove On"
@@ -52,7 +50,6 @@
           <strong><i class="lni lni-plus"></i></strong>
         </a>
       </div>
-
       <a
         v-else
         @click.prevent="
@@ -74,7 +71,7 @@
         href=""
         class="button button-sm add_to_cart_button"
       >
-        {{ cart_button }} <i class="lni-shopping-basket"></i
+        {{ cart_button }} item<i class="lni-shopping-basket"></i
       ></a>
     </div>
   </div>
@@ -154,6 +151,9 @@ export default {
 </script>
 
 <style>
+
+
+
 </style>
 
 
