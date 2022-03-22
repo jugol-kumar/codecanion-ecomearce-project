@@ -73,7 +73,7 @@ $google_analytics = googleAnalytics();
   <div id="front-wrapper">
     <header class="header theme-background">
 {{--        "container-fluid" class change--}}
-        <div class="">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col col-lg-1 col-sm-1">
                     <div class="left-menu-toggle">

@@ -231,9 +231,10 @@ sidebar Menu
     min-width: 250px;
     max-width: 250px;
     background: #fff;
-    box-shadow: 5px -3px 13px 1px rgba(0, 0, 0, 0.08);
+    /*box-shadow: 5px -3px 13px 1px rgba(0, 0, 0, 0.08);*/
+    border-right: 1px solid rgb(0 0 0 / 8%);
     color: #fff;
-    transition: all ease 1s;
+    transition: all ease 0.3s;
     position: relative;
     min-height: 100%;
     top: 0px;
@@ -249,7 +250,7 @@ sidebar Menu
      margin-left: -250px;
     /* open this for showing  menu */
     /* margin-left: 0px; */
-    transition: all ease 1s;
+    transition: all ease 0.3s;
 }
 
 .sidebar .sidebar-header {
