@@ -342,7 +342,11 @@ color: white;
     outline-color: none;
 
 }
+/* right side sign in button design*/
 
+
+
+/* product carousel slider button design*/
 .VueCarousel-navigation .VueCarousel-navigation-prev{
     transform: translateY(-50%) translateX(-100%) !important;
     width: 60px;
@@ -364,6 +368,9 @@ color: white;
     height: 113px;
     right: -170px!important;
 }
+/* product carousel slider button design*/
+
+/* order system slider carousel design*/
 .order-slider-ol {
     position: absolute;
     bottom: 0;
@@ -397,3 +404,254 @@ color: white;
 .order-carocel-button{
     display: none !important;
 }
+
+@media only screen and (max-width: 768px) {
+    .VueCarousel-navigation .VueCarousel-navigation-next{
+        display: none !important;
+    }
+}
+/* order system slider carousel design*/
+
+
+/* why chose us section style*/
+#whyChoseUs .col{
+    padding: 0;
+}
+#whyChoseUs .card{
+    border: none;
+    border-radius: 0;
+    min-height: 250px;
+}
+#whyChoseUs .c1{
+    border-bottom: 3px solid greenyellow;
+}
+#whyChoseUs .c2{
+    border-bottom: 3px solid orange;
+}
+#whyChoseUs .c3{
+    border-bottom: 3px solid #00b7ff;
+}
+#whyChoseUs .card-bg-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover !important;
+}
+#whyChoseUs .c1 .card-bg-image {
+    background: url("https://media.gettyimages.com/photos/delivery-biker-looking-over-their-shoulder-picture-id1307965024?s=2048x2048") no-repeat;
+}
+#whyChoseUs .c2 .card-bg-image {
+    background: url("https://previews.123rf.com/images/cgdeaw/cgdeaw1808/cgdeaw180800075/106577384-fig-fruit-ficus-racemosa-fig-on-tree-nature-fig-forest-fruit-fig-red-and-green-thai-fruits.jpg?fj=1") no-repeat;
+}
+#whyChoseUs .c3 .card-bg-image {
+    background: url("https://s3.envato.com/files/315822185/132_1R3A9538.jpg") no-repeat;
+}
+#whyChoseUs .card-body{
+    padding: 0;
+}
+#whyChoseUs .card-body .card-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    background: rgba(255,255,255,.8);
+    height: 69%;
+    padding: 15px;
+}
+#whyChoseUs .card-body .card-content h3 {
+    color: black;
+    font-size: 20px;
+    font-weight: normal;
+    font-family: arial;
+}
+#whyChoseUs .card-body .card-content p {
+    color: black;
+    font-size: 15px;
+    text-align: center;
+}
+
+/* why chose us section style*/
+
+
+
+
+/*{{--   business deal area--}}*/
+#business-deal{
+    margin-top: 50px;
+}
+#business-deal .section-background:after {
+    content: "";
+    background: linear-gradient(60deg, #0e0e0cc4, #05264ad4);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    position: absolute;
+    left: 0;
+    z-index: -1;
+}
+#business-deal .section-background{
+    background-image: url("https://media.istockphoto.com/photos/bookshelf-in-public-library-picture-id831651876");
+    width: 100%;
+    min-height: 600px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+}
+
+#business-deal .main-area {
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+}
+#business-deal .main-area .single-card {
+    border: none;
+    min-height: 190px;
+    min-width: 250px;
+    background: #80808054;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 19px;
+}
+#business-deal .main-area .topsection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 13px;
+}
+#business-deal .main-area .topsection p:first-of-type {
+    color: #fff;
+    font-size: 21px;
+    font-weight: normal;
+}
+#business-deal .main-area .topsection p:last-of-type {
+    color: #fdd670;
+    font-size: 21px;
+    font-weight: normal;
+}
+
+#business-deal .main-area .topsection i.lni.lni-briefcase {
+    color: white;
+    margin-bottom: 25px;
+    font-size: 96px;
+}
+#business-deal .main-area .single-card p{
+    color: white;
+    font-size: 14px;
+}
+#business-deal .main-area .single-card i.lni.lni-phone {
+    color: white;
+    font-size: 96px;
+}
+#business-deal .main-area .single-card i.lni.lni-delivery {
+    color: white;
+    font-size: 96px;
+}
+
+#business-deal .main-area .single-card i.lni.lni-invest-monitor{
+    color: white;
+    font-size: 96px;
+}
+
+#business-deal .main-area .bottomsection .custom-btn {
+    background: #ff686e;
+    border: none;
+    outline: none;
+    border-radius: 0;
+    color: white;
+    padding: 12px 25px;
+}
+/*{{--   business deal area--}}*/
+
+/* buisness app styles*/
+
+#businessApp .app-left-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#businessApp {
+    min-height: 400px;
+    margin-top: 50px;
+}
+
+#businessApp img{
+    float: right;
+    max-width: 300px;
+}
+#businessApp .form-group {
+    display: flex;
+    height: 54px;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
+    background: #f7f4f4;
+    border-radius: 7px;
+    padding-left: 12px;
+}
+#businessApp .form-group img{
+    margin-top: 10px;
+}
+#businessApp .form-group input[type="text"] {
+    padding: 7px;
+    border: none;
+    background: transparent;
+}
+#businessApp .app-buttons img{
+    max-width: 185px;
+}
+#businessApp .form-group input[type="text"]:focus-visible{
+    border: none;
+    outline: none;
+}
+#businessApp .form-group .getapp-button {
+    background: #ff686e;
+    color: white;
+    padding: 14px 29px;
+    border-radius: 0px 5px 5px 0px;
+}
+#businessApp .form-group input[type="text"]:focus-visible .form-group{
+    border: 2px solid #ff686e;
+}
+#businessApp .app-left-section p{
+     top: -62px;
+     position: relative;
+     font-size: 20px;
+     color: black;
+ }
+/* buisness app styles*/
+
+
+
+
+/*  city and services counter section*/
+
+#customerCounter{
+    background: #3a3a3a;
+}
+
+#customerCounter .app-left-section img{
+    max-height: 430px;
+}
+#customerCounter .counter-content p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 35px;
+    font-weight: bold;
+    line-height: 53px;
+    color: white;
+}
+
+#customerCounter .counter-content p span{
+    color: #fdd670 ;
+}
+/*  city and services counter section*/

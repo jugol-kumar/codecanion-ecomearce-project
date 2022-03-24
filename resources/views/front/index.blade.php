@@ -118,63 +118,7 @@
     <!--  end category-->
 
 {{--    how to order slider--}}
-    <div class="container">
-        <div class="row category">
-            <div class="col-md-12">
-                <div class="title text-center">
-                    <h4>How to order from Groco ?</h4>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-10 m-auto">
-                <div id="order-process" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators order-slider-ol">
-                        <li data-target="#order-process" data-slide-to="1"
-                            class="active"></li>
-
-                        <li data-target="#order-process" data-slide-to="2"
-                            class=""></li>
-
-                        <li data-target="#order-process" data-slide-to="3"
-                            class=""></li>
-                    </ol>
-                    <div class="carousel-inner">
-                        <div class="carousel-item  active">
-                            <a href="">
-                                <img class="d-block w-100"
-                                     src="https://chaldn.com/asset/Egg.Grocery.Fabric/Egg.Grocery.Web1/1.5.0+DataCenter-Release-2936/Default/stores/chaldal/components/landingPage2/LandingPage/images/how_to_order_chaldal/tutorial-1.jpg?q=best&webp=1"
-                                     alt="image">
-                            </a>
-                        </div>
-                        <div class="carousel-item ">
-                            <a href="">
-                                <img class="d-block w-100"
-                                     src="https://chaldn.com/asset/Egg.Grocery.Fabric/Egg.Grocery.Web1/1.5.0+DataCenter-Release-2936/Default/stores/chaldal/components/landingPage2/LandingPage/images/how_to_order_chaldal/tutorial-2.jpg?q=best&webp=1"
-                                     alt="image">
-                            </a>
-                        </div>
-                        <div class="carousel-item ">
-                            <a href="">
-                                <img class="d-block w-100"
-                                     src="https://chaldn.com/asset/Egg.Grocery.Fabric/Egg.Grocery.Web1/1.5.0+DataCenter-Release-2936/Default/stores/chaldal/components/landingPage2/LandingPage/images/how_to_order_chaldal/tutorial-3.jpg?q=best&webp=1"alt="image">
-                            </a>
-                        </div>
-                    </div>
-
-                    <a class="carousel-control-prev" href="#order-process" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon order-carocel-button" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#order-process" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon order-carocel-button" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <home-order-slider></home-order-slider>
 {{--    how to order slider--}}
 
 
@@ -189,12 +133,81 @@
     <!--  end   hot deal -->
 
 
+{{--    why people chose us section--}}
+    <people-love></people-love>
+{{--    why people chose us section--}}
+
+{{--   business deal area--}}
+    <buisness-deal></buisness-deal>
+{{--   business deal area--}}
+
+{{--   add section for mobile app--}}
+    <div class="container-fluid" id="businessApp">
+        <div class="row">
+            <div class="col-md-6 app-left-section">
+                <p>Be a part of our family</p>
+                <div class="form-section">
+                    <div class="form-group">
+                        <label for="">
+                            <img src="https://img.icons8.com/color/48/000000/bangladesh.png"/>
+                        </label>
+                        <input type="text" value="88">
+                        <button class="btn getapp-button">Get App</button>
+                    </div>
+                    <div class="app-buttons">
+                        <img src="{{ asset('assets/image/app1.webp') }}" alt="">
+                        <img src="{{ asset('assets/image/app2.webp') }}" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <img src="{{ asset("assets/image/appimage.png") }}" alt="">
+            </div>
+        </div>
+    </div>
+{{--   add section for mobile app--}}
+
+
+    {{--   add section for mobile app--}}
+
+
+    {{--    all customer counter section--}}
+    <div class="container-fluid" id="customerCounter">
+        <div class="row">
+            <div class="col-md-6 app-left-section">
+                <img src="{{ asset('images/citymap.webp') }}" alt="">
+            </div>
+            <div class="col-md-6 float-right">
+                <div class="counter-content">
+                    <p>
+                        <span>Dhaka</span>
+                        Total Orders Placed
+                        <span>2975407</span>
+                        Total Savings
+                        <span>৳252,909,595</span>
+                        Time Saved
+                        <span>2,231,555 hrs</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{--    all customer counter section--}}
+
+
+
+
+
+
 
     @if($shop_info->onsale_status == 1)
         <!-- on slae  -->
         <on-sale-product :currency="{{ $currency }}"></on-sale-product>
         <!-- on slae  -->
     @endif
+
+
+
 @endsection
 
 @push('script')

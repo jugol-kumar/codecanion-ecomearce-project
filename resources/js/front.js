@@ -9,7 +9,7 @@ const store = new Vuex.Store(
     storeData
 )
 
-// end vuex 
+// end vuex
 // Vue.component('home-category', require('./components/front/category/HomeCategory.vue').default);
 Vue.component('category-subcategory', require('./components/front/category/CategorySubCategory.vue').default);
 Vue.component('category-product', require('./components/front/category/CategoryProduct.vue').default);
@@ -32,20 +32,29 @@ Vue.component('sub-sub-category-product', require('./components/front/product/Su
 Vue.component('product-details', require('./components/front/product/ProductDetails.vue').default);
 
 
-// verification 
+// verification
 
 Vue.component('verification', require('./components/front/setting/Verification.vue').default);
 
-// profile 
+// profile
 Vue.component('order-history', require('./components/front/user/Orders.vue').default);
 Vue.component('order-tracking', require('./components/front/user/OrderTrack.vue').default);
 
 Vue.component('profile-update', require('./components/front/profile/ProfileUpdate.vue').default);
 Vue.component('user-dashboard', require('./components/front/profile/UserDashboard.vue').default);
 
-// flutter wave payment 
+// flutter wave payment
 
 Vue.component('flutter-wave-payment', require('./components/front/payment/FlutterWavePayment.vue').default);
+
+// add home other components for home page
+Vue.component('home-order-slider', require('./components/front/home/HomeOrderSlider').default);
+Vue.component('people-love', require('./components/front/home/PeopleLove').default);
+Vue.component('buisness-deal', require('./components/front/home/BusinessDeal').default);
+
+
+
+
 
 import VueLazyload from 'vue-lazyload';
 

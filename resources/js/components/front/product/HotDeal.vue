@@ -94,7 +94,7 @@ export default {
 </script>
 
 <style scoped>
-@media only screen and (max-width: 1380px) {
+@media only screen and (max-width: 768px) {
   /* .custom_class {
     width: 200px !important;
   } */
