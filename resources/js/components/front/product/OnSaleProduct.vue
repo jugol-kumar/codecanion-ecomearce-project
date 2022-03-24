@@ -9,11 +9,12 @@
     </div>
     <div class="row offers">
       <div
-        class="col-6 col-lg-3 col-sm-4"
+        class="col-6 col-lg-2 col-sm-4"
         v-for="value in saleProducts"
         :key="value.id"
       >
-        <single-product :currency="currency" :product="value"></single-product>
+          <single-product-card :currency="currency" :product="value"></single-product-card>
+<!--        <single-product :currency="currency" :product="value"></single-product>-->
       </div>
 
       <infinite-loading spinner="bubbles" @infinite="infiniteHandler">
@@ -40,13 +41,14 @@ import { EventBus } from "../../../vue-assets";
 import Mixin from "../../../mixin";
 import SingleProduct from "./SingleProduct";
 import InfiniteLoading from "vue-infinite-loading";
-
+import SingleProductCard from "./SingleProductCard";
 export default {
   props: ["currency"],
   mixins: [Mixin],
   components: {
     "single-product": SingleProduct,
     "infinite-loading": InfiniteLoading,
+      "single-product-card": SingleProductCard,
   },
   data() {
     return {

@@ -10,16 +10,17 @@
 
     <div class="row" v-if="!isLoading">
       <carousel
-        :class="'offers col-md-12'"
+        :class="'offers col-md-10 m-auto'"
         :perPageCustom="[
           [0, 2],
           [580, 3],
-          [1200, 4],
+          [1200, 3],
           [1500, 5],
         ]"
         :autoplay="true"
         :autoplayHoverPause="true"
         :autoplayTimeout="2000"
+        :navigationEnabled="true"
       >
         <slide
           :class="'col-12 custom_class'"
@@ -92,11 +93,12 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 @media only screen and (max-width: 1380px) {
   /* .custom_class {
     width: 200px !important;
   } */
 }
-</style>>
+
+</style>
 

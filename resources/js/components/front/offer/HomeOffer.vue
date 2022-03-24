@@ -15,6 +15,7 @@
 			<a :href="url+'offers'" class="button"> View All Offer <i class="lni-arrow-right"></i></a>
 		</div>
 	</div>
+
 		</div>
 </template>
 
@@ -24,9 +25,9 @@
 
 	export default {
         data(){
-           
+
            return {
-            
+
             offers : [],
             isLoading : false,
             url : base_url
@@ -41,7 +42,7 @@
         },
 
         methods : {
-       
+
          getOffers()
          {
            this.isLoading = true;
@@ -54,5 +55,5 @@
 
         }
 
-	}	
+	}
 </script>
