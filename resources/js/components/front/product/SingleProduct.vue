@@ -1,64 +1,60 @@
 <template>
   <div class="offer">
-    <a :href="url + 'product/' + product.id + '/' + product.product_slug">
-      <div class="overlay">
-        <p>Add To Shopping Bag</p>
-      </div>
-    </a>
-    <!-- <a href="" class="btn theme-background color-white" title="Add To Trial">
-     <i class="lni lni-tshirt"></i>
-   </a> -->
-    <a :href="url + 'product/' + product.id + '/' + product.product_slug">
-      <img v-lazy="product.feature_image" class="img-fluid"/>
-    </a>
-    <div class="content">
-      <a
-          :href="url + 'product/' + product.id + '/' + product.product_slug"
-          class="name"
-      >{{ product.product_name }}</a
-      >
-      <p class="qty_unit">
-        <small>{{ product.quantity_unit }}</small>
-      </p>
-      <span class="regular-price" v-if="product.discount_status == 1"
-      >{{
-          currency.symbol
-        }}{{
-          (product.selling_price - product.discount_amount) | formatPrice
-        }}</span
-      >
-      <span class="regular-price" v-else
-      >{{ currency.symbol }}{{ product.selling_price }}</span
-      >
-      <span
-          class="discount-price"
-          v-if="product.discount_status == 1 && product.discount_amount > 0"
-      >{{ currency.symbol }}{{ product.selling_price | formatPrice }}</span
-      >
-      <div class="item-cart" v-if="havingProduct">
-        <a
-            title="Remove On"
-            @click.prevent="updateCart(havingProduct.rowId, 'decrement')"
-            class="float-left qty-minus"
-        >
-          <strong><i class="lni lni-minus"></i></strong>
-        </a>
+          <a :href="url + 'product/' + product.id + '/' + product.product_slug"></a>
+          <!-- <a href="" class="btn theme-background color-white" title="Add To Trial">
+           <i class="lni lni-tshirt"></i>
+         </a> -->
+          <a :href="url + 'product/' + product.id + '/' + product.product_slug">
+              <img v-lazy="product.feature_image" class="img-fluid"/>
+          </a>
+          <div class="content">
+              <a
+                  :href="url + 'product/' + product.id + '/' + product.product_slug"
+                  class="name"
+              >{{ product.product_name }}</a
+              >
+              <p class="qty_unit">
+                  <small>{{ product.quantity_unit }}</small>
+              </p>
+              <span class="regular-price" v-if="product.discount_status == 1"
+              >{{
+                      currency.symbol
+                  }}{{
+                      (product.selling_price - product.discount_amount) | formatPrice
+                  }}</span
+              >
+              <span class="regular-price" v-else
+              >{{ currency.symbol }}{{ product.selling_price }}</span
+              >
+              <span
+                  class="discount-price"
+                  v-if="product.discount_status == 1 && product.discount_amount > 0"
+              >{{ currency.symbol }}{{ product.selling_price | formatPrice }}</span
+              >
+              <div class="item-cart" v-if="havingProduct">
+                  <a
+                      title="Remove On"
+                      @click.prevent="updateCart(havingProduct.rowId, 'decrement')"
+                      class="float-left qty-minus"
+                  >
+                      <strong><i class="lni lni-minus"></i></strong>
+                  </a>
 
-        <div class="qty-text float-left">
-          <strong>{{ havingProduct.qty }} in Cart</strong>
-        </div>
+                  <div class="qty-text float-left">
+                      <strong>{{ havingProduct.qty }} in Cart</strong>
+                  </div>
 
-        <a
-            title="Add One More"
-            @click.prevent="updateCart(havingProduct.rowId, 'increment')"
-            class="float-left qty-plus"
-        >
-          <strong><i class="lni lni-plus"></i></strong>
-        </a>
-      </div>
-      <a
-          v-else
-          @click.prevent="
+                  <a
+                      title="Add One More"
+                      @click.prevent="updateCart(havingProduct.rowId, 'increment')"
+                      class="float-left qty-plus"
+                  >
+                      <strong><i class="lni lni-plus"></i></strong>
+                  </a>
+              </div>
+              <a
+                  v-else
+                  @click.prevent="
           addToCart(
             product.id,
             product.product_name,
@@ -74,12 +70,17 @@
               : 0
           )
         "
-          href=""
-          class="button button-sm add_to_cart_button"
-      >
-        {{ cart_button }} item<i class="lni-shopping-basket"></i
-      ></a>
-    </div>
+                  href=""
+                  class="button button-sm add_to_cart_button"
+              >
+                  {{ cart_button }} item<i class="lni-shopping-basket"></i
+              ></a>
+          </div>
+      <a :href="url + 'product/' + product.id + '/' + product.product_slug">
+          <div class="offer-overlay">
+              <p>{{productRedrict}}</p>
+          </div>
+      </a>
   </div>
 </template>
 
@@ -94,6 +95,7 @@ export default {
     return {
       url: base_url,
       cart_button: "Add to Cart",
+        productRedrict:"Product Details"
     };
   },
 
@@ -157,35 +159,7 @@ export default {
 </script>
 
 <style scoped>
-.offer{
-  position: relative;
-  transition: 0.3s all ease;
-}
-.offer .overlay {
-  opacity: 0;
-}
 
-.offer:hover {
-  position :absolute;
-  top:14px;
-}
-.offer:hover .overlay {
-  opacity: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 91%;
-  background: rgba(40, 40, 40, .75);
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-weight: 700;
-}
-
-.offer:hover .overlay p{
-  color: white;
-}
 </style>
 
 

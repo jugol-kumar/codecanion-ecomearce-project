@@ -22143,7 +22143,7 @@ var EventBus = new Vue();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! E:\xampp\htdocs\software\resources\js\brand.js */"./resources/js/brand.js");
+module.exports = __webpack_require__(/*! F:\xampp\htdocs\software\resources\js\brand.js */"./resources/js/brand.js");
 
 
 /***/ })
