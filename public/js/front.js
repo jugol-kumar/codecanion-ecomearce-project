@@ -4048,6 +4048,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -4057,7 +4073,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       url: base_url,
       cart_button: "Add to Cart",
-      productRedrict: "Product Details"
+      productRedrict: "Add Product To Shopping Bag"
     };
   },
   computed: {
@@ -13390,7 +13406,7 @@ var render = function() {
           }),
           0
         )
-      : _c("div", { staticClass: "row" }, [_vm._m(0)])
+      : _c("div", { staticClass: "row min_content_height" }, [_vm._m(0)])
   ])
 }
 var staticRenderFns = [
@@ -13553,13 +13569,17 @@ var staticRenderFns = [
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "bottomsection mt-5" }, [
-                _c(
-                  "a",
-                  { staticClass: "btn custom-btn", attrs: { href: "" } },
-                  [_vm._v("FIND OUT MORE")]
-                )
-              ])
+              _c(
+                "div",
+                { staticClass: "bottomsection mt-5 sm_mb_5_findmore" },
+                [
+                  _c(
+                    "a",
+                    { staticClass: "btn custom-btn", attrs: { href: "" } },
+                    [_vm._v("FIND OUT MORE")]
+                  )
+                ]
+              )
             ])
           ])
         ])
@@ -14993,30 +15013,59 @@ var render = function() {
               }
             },
             [
-              _vm._v("\n                " + _vm._s(_vm.cart_button) + " item"),
+              _vm._v("\n            " + _vm._s(_vm.cart_button) + " item"),
               _c("i", { staticClass: "lni-shopping-basket" })
             ]
           )
     ]),
     _vm._v(" "),
-    _c(
-      "a",
-      {
-        attrs: {
-          href:
-            _vm.url +
-            "product/" +
-            _vm.product.id +
-            "/" +
-            _vm.product.product_slug
-        }
-      },
-      [
-        _c("div", { staticClass: "offer-overlay" }, [
-          _c("p", [_vm._v(_vm._s(_vm.productRedrict))])
-        ])
-      ]
-    )
+    _c("a", [
+      _c("div", { staticClass: "offer-overlay" }, [
+        _c(
+          "p",
+          {
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.addToCart(
+                  _vm.product.id,
+                  _vm.product.product_name,
+                  _vm.product.quantity_unit,
+                  1,
+                  _vm.product.current_quantity,
+                  _vm.product.discount_status == 1 &&
+                    _vm.product.discount_amount > 0
+                    ? _vm.product.selling_price - _vm.product.discount_amount
+                    : _vm.product.selling_price,
+                  _vm.product.feature_image,
+                  _vm.product.discount_status == 1 &&
+                    _vm.product.discount_amount > 0
+                    ? _vm.product.discount_amount
+                    : 0
+                )
+              }
+            }
+          },
+          [_vm._v(_vm._s(_vm.productRedrict))]
+        ),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            staticClass: "offer-card-bottom-button",
+            attrs: {
+              href:
+                _vm.url +
+                "product/" +
+                _vm.product.id +
+                "/" +
+                _vm.product.product_slug
+            }
+          },
+          [_vm._v("Product Details")]
+        )
+      ])
+    ])
   ])
 }
 var staticRenderFns = [
@@ -33412,7 +33461,7 @@ var EventBus = new Vue();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! F:\xampp\htdocs\software\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! E:\xampp\htdocs\test\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })

@@ -207,7 +207,6 @@ function codeCheker()
 
 function verifyCustomer()
 {
-
     $code = codeCheker();
 
     $curl = curl_init();

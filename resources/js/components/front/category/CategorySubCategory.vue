@@ -32,7 +32,7 @@
       </div>
     </div>
 
-    <div class="row" v-else>
+    <div class="row min_content_height" v-else>
       <div class="col-md-12 text-center">
         <h3>No Sub Category</h3>
       </div>

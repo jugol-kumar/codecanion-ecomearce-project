@@ -33668,7 +33668,7 @@ var EventBus = new Vue();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! F:\xampp\htdocs\software\resources\js\email.js */"./resources/js/email.js");
+module.exports = __webpack_require__(/*! E:\xampp\htdocs\test\resources\js\email.js */"./resources/js/email.js");
 
 
 /***/ })

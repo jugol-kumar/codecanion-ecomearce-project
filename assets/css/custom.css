@@ -326,7 +326,7 @@ color: white;
 
 /* right side sign in button design*/
 
-.signin-button{
+.signin-button {
     border: none !important;
     background: #ff686e;
     float: right;
@@ -334,8 +334,8 @@ color: white;
     padding: 17px 45px;
     font-weight: bold;
     font-size: 14px;
-    position: relative;
-    right: -15px;
+    position: absolute;
+    right: -33%;
 }
 .signin-button:focus{
     outline: none;
@@ -694,16 +694,76 @@ color: white;
     position: absolute;
     top: 0;
     left: 0;
-    width: 250px;
-    height: 375px;
+    width: 100%;
+    height: 88.7%;
     background: rgba(0,0,0,0.8);
     border-radius: 0;
     opacity: 0;
-    transition: 0.4s all ease;
+    /*transition: 0.4s all ease;*/
 }
 .offer-overlay p{
     color: #FFFFFF;
+    padding: 78% 26% 61% 26%;
 }
 .offer:hover .offer-overlay{
     opacity: 1;
+}
+
+.this_is_my_personal_div{
+    padding-bottom:50px !important;
+}
+
+
+.offer-card-bottom-button {
+    position: absolute;
+    bottom: -1px;
+    background: white;
+    padding: 2px 0px;
+    display: block;
+    width: 100%;
+    font-size: 13px;
+    border: 1px solid #cdc6c6;
+    color: black;
+    border-top: none;
+}
+.offer-card-bottom-button:hover{
+    color: black !important;
+}
+
+/*user profile icon hover dropdeown menu*/
+.profile-button {
+    border: none !important;
+    background: #ff686e;
+    float: right;
+    color: white;
+    padding: 15px 45px;
+    font-weight: bold;
+    font-size: 14px;
+    position: absolute;
+    right: -33%;
+}
+.user-menu:hover .dropdown-menu1 {
+    display: block;
+    float: right;
+    position: relative;
+    bottom: -55px;
+    left: 41%;
+}
+/*user profile icon hover dropdeown menu*/
+
+
+
+
+@media (min-width: 300px) {
+    #businessApp{
+        margin-top: 7rem !important;
+    }
+    #businessApp .app-buttons {
+        display: flex;
+    }
+
+/*    find more button*/
+    .sm_mb_5_findmore{
+        margin-bottom: 3rem !important;
+    }
 }

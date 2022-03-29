@@ -142,7 +142,7 @@
 {{--   business deal area--}}
 
 {{--   add section for mobile app--}}
-    <div class="container-fluid" id="businessApp">
+    <div class="container-fluid mt-sm-5 mt-sm-5" id="businessApp">
         <div class="row">
             <div class="col-md-6 app-left-section">
                 <p>Be a part of our family</p>
@@ -154,7 +154,7 @@
                         <input type="text" value="88">
                         <button class="btn getapp-button">Get App</button>
                     </div>
-                    <div class="app-buttons">
+                    <div class="app-buttons d-sm-flex">
                         <img src="{{ asset('assets/image/app1.webp') }}" alt="">
                         <img src="{{ asset('assets/image/app2.webp') }}" alt="">
                     </div>

@@ -30,7 +30,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="bottomsection mt-5">
+                    <div class="bottomsection mt-5 sm_mb_5_findmore">
                         <a href="" class="btn custom-btn">FIND OUT MORE</a>
                     </div>
                 </div>

@@ -21,9 +21,11 @@
 
 @section('content')
       @if(count($sub_category->sub_sub_category) > 0)
-        <!--  leve three category   -->
-        <level-three-category :sub_category='@json($sub_category)'></level-three-category>
-        <!--  level three category  -->
+        <div class="content_min_height">
+            <!--  leve three category   -->
+            <level-three-category :sub_category='@json($sub_category)'></level-three-category>
+            <!--  level three category  -->
+        </div>
       @endif
 
         <!--  start category product  -->

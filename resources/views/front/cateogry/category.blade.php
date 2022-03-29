@@ -20,7 +20,9 @@
 @section('content')
 
    <!-- home category from js  -->
-    <category-subcategory :category='@json($category)'></category-subcategory>
+   <div class="this_is_my_personal_div">
+        <category-subcategory :category='@json($category)'></category-subcategory>
+   </div>
    <!-- home category from js  -->
 
         <!--  end category-->

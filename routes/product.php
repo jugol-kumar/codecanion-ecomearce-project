@@ -39,19 +39,19 @@ Route::group(['prefix'=>'admin','middleware'=>['auth:admin','permission']],funct
 
   // sub category in admin
 
-  Route::resource('sub-category','Product\SubCategoryController');
+  Route::resource('sub-category','Product\SubcategoryController');
 
   Route::post('sub-category/update/{id}',[
    'as' => 'update.subcategory',
-   'uses' => 'Product\SubCategoryController@update',
+   'uses' => 'Product\SubcategoryController@update',
   ]);
 
   Route::get('sub-category/delete/{id}',[
    'as' => 'delete.subcategory',
-   'uses' => 'Product\SubCategoryController@destroy',
+   'uses' => 'Product\SubcategoryController@destroy',
   ]);
 
-  Route::get('sub-category-list','Product\SubCategoryController@subCategoryList');
+  Route::get('sub-category-list','Product\SubcategoryController@subCategoryList');
 
   // general thing
 

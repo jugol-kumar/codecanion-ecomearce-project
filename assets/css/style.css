@@ -795,15 +795,16 @@ Offer Product
 
 .offers .offer:hover a.button {
     opacity: 1;
-    background: rgba(37, 37, 37);
-    color: #fff;
+    background: #fff;
+    /*background: rgba(37, 37, 37);*/
+    color: #000;
     /*    transform: scale(1.1, 1.1);*/
 }
 
-.offers .offer .content a.button:hover {
-    background: rgba(37, 37, 37);
-    color: #fff;
-}
+/*.offers .offer .content a.button:hover {*/
+/*    background: rgba(37, 37, 37);*/
+/*    color: #fff;*/
+/*}*/
 
 .offers .offer .quantity {
     background-color: #E3106E;
