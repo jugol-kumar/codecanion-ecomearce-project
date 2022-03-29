@@ -79,5 +79,4 @@ Route::group(['middleware' => 'guest'], function () {
     Route::post('user-password-email-reset-link', 'Front\User\UserController@sendEmailLink')->name('user-password-email-reset-link');
     Route::get('user/reset/{token?}', 'Front\User\UserController@viewUserResetPage');
     Route::post('user/reset/password', 'Front\User\UserController@storeResetPassword')->name('user.confirm.password');
-
 });

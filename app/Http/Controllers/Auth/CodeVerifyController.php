@@ -13,7 +13,6 @@ class CodeVerifyController extends Controller
 
     public function enterCode()
     {
-        // return url('/');
         return view('front.setting.verify');
     }
 
@@ -26,13 +25,10 @@ class CodeVerifyController extends Controller
                 'code.min'      => 'Invalid Code',
             ]
         );
-
         $install = new InstalltionSetting;
-
         $install->purchase_code = $request->code;
         $install->status        = 1;
         $install->save();
-
         return response()->json(['status' => 'success', 'message' => 'Verified']);
 
     }

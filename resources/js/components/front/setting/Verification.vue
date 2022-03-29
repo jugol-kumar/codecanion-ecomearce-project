@@ -65,8 +65,7 @@ export default {
   methods: {
     getVerified() {
       this.isLoading = true;
-      axios
-        .post(base_url + "post/code", this.form_data)
+      axios.post(base_url + "post/code", this.form_data)
         .then((response) => {
           if (response.data.status == "success") {
             this.verificationConfirm();

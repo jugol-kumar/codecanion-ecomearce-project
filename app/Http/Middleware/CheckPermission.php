@@ -32,7 +32,9 @@ class CheckPermission
                         ->get()->toArray();
                     if (empty($permissionCheck) || count($permissionCheck) <= 0)
                     {
-                        return response()->view('admin.errors.permission_deneid', [], 404);
+                        dd("here is calling");
+
+//                        return response()->view('admin.errors.permission_deneid', [], 404);
                     }
                 }
             }

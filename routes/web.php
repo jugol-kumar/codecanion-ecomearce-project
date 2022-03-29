@@ -3,6 +3,15 @@
 use App\Http\Controllers\Front\WebController;
 
 Route::get('/', 'Front\WebController@index');
+
+
+
+//Route::get('/', function (){
+//    return CURL_HTTP_VERSION_1_1;
+//});
+
+
+
 Route::get('page/{slug}', 'Front\WebController@ShowPage');
 Route::get('category-list', 'Front\WebController@categoryList');
 Route::get('home-offers', 'Front\WebController@homeOffers');

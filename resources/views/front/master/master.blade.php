@@ -175,6 +175,8 @@
                     @endif
                 @endforeach
             </div>
+
+
             @yield('content')
 
         <!--start email subscribe-->

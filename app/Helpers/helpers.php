@@ -200,36 +200,42 @@ function homeSlider()
     });
 }
 
-function codeCheker()
-{
-    return $check = InstalltionSetting::orderBy('id', 'desc')->first();
-}
+//function codeCheker()
+//{
+//    return $check = InstalltionSetting::orderBy('id', 'desc')->first();
+//}
 
-function verifyCustomer()
-{
-    $code = codeCheker();
-
-    $curl = curl_init();
-
-    curl_setopt_array($curl, array(
-        CURLOPT_URL            => "http://track.limmexbd.com/api/verify",
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING       => "",
-        CURLOPT_MAXREDIRS      => 10,
-        CURLOPT_TIMEOUT        => 0,
-        CURLOPT_FOLLOWLOCATION => true,
-        CURLOPT_HTTP_VERSION   => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST  => "POST",
-        CURLOPT_POSTFIELDS     => array(
-            'purchase_code'    => $code->purchase_code,
-            'url'              => url('/'),
-            'application_name' => 'limmerz',
-            'client_ip'        => request()->ip()),
-    ));
-
-    $response = curl_exec($curl);
-
-}
+//function verifyCustomer()
+//{
+//
+////    dd("calling here now");
+//
+//
+//     $code = codeCheker();
+//
+//     $curl = curl_init();
+//
+//
+//    curl_setopt_array($curl, array(
+//        CURLOPT_URL            => "http://track.limmexbd.com/api/verify",
+//        CURLOPT_RETURNTRANSFER => true,
+//        CURLOPT_ENCODING       => "",
+//        CURLOPT_MAXREDIRS      => 10,
+//        CURLOPT_TIMEOUT        => 0,
+//        CURLOPT_FOLLOWLOCATION => true,
+//        CURLOPT_HTTP_VERSION   => CURL_HTTP_VERSION_1_1,
+//        CURLOPT_CUSTOMREQUEST  => "POST",
+//        CURLOPT_POSTFIELDS     => array(
+//            'purchase_code'    => $code->purchase_code,
+//            'url'              => url('/'),
+//            'application_name' => 'limmerz',
+//            'client_ip'        => "107.178.112.47"),
+//    ));
+//
+//    $response = curl_exec($curl);
+//    return "save here data";
+//
+//}
 
 // calculating minute difference between to date time
 function minuteCalculate($from_date_time, $to_date_time)
