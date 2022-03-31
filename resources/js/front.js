@@ -52,10 +52,6 @@ Vue.component('home-order-slider', require('./components/front/home/HomeOrderSli
 Vue.component('people-love', require('./components/front/home/PeopleLove').default);
 Vue.component('buisness-deal', require('./components/front/home/BusinessDeal').default);
 
-
-
-
-
 import VueLazyload from 'vue-lazyload';
 
 Vue.use(VueLazyload, {

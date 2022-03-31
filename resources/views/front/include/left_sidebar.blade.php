@@ -17,7 +17,7 @@
             <a title="{{ $value->category_name }}" class="parent_a" href="#">
                 <img alt="{{ $value->category_name }}" src="{{ asset('images/category/icon/'.$value->icon) }}"
                 style="max-width: 30px; max-height: 30px; " alt="icon" class="img-fluid">
-                {{ $value->category_name }} <i class="lni-chevron-down"></i></a>
+                {{ $value->category_name }} <i class="lni-chevron-right"></i></a>
             <ul class="sub_class">
 
                 <!-- 2nd levelstart-->

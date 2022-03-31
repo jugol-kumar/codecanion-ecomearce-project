@@ -34,21 +34,17 @@
                                 <form method="POST" action="{{ route('login') }}">
                                     @csrf
                                     <div class="form-group">
-
                                         <input value=""
                                         class="sign-up-input form-control @error('email') is-invalid @enderror"
                                          name="email" value="{{ old('email') }}"
                                           required autocomplete="email" placeholder="Email" autofocus>
                                         <p class="ptsan-regular text-danger">
                                             @error('email')
-
                                             {{ $message }}
-
                                             @enderror
                                         </p>
                                     </div>
                                     <div class="form-group ">
-
                                         <input id="password" type="password"
                                         class="sign-up-input form-control @error('password') is-invalid @enderror"
                                          name="password" required
@@ -56,9 +52,7 @@
                                          autocomplete="current-password">
                                         <p class="ptsan-regular text-danger">
                                             @error('password')
-
                                             {{ $message }}
-
                                             @enderror
                                         </p>
                                     </div>
@@ -66,9 +60,11 @@
                                         <input class="starterPrice my-radio" type="checkbox"
                                         name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}><label for="remember">{{ __('Remember Me') }}</label>
                                     </div>
-
                                     <button type="submit" class="button button-md bg-dark2 color-white mb20 theme-background" style="width: 100%">{{ __('Login') }}</button>
                                 </form>
+
+
+
                                 <div class="account-info text-center clearfix width-res">
                                     <h5 class="color-dark">
                                         <a class="float-l te-und-ho" href="{{ route('password.request') }}">Forget Password?</a>
@@ -125,5 +121,5 @@
 @endsection
 
 @push('script')
-<script src="{{ asset('public/js/front.js') }}"></script>
+<script src="{{ asset('public/js/front.js') }}" type="application/javascript"></script>
 @endpush

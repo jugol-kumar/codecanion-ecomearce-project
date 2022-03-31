@@ -3,7 +3,7 @@
         <div class="row category">
             <div class="col-md-12">
                 <div class="title text-center">
-                    <h4>How to order from Groco ?</h4>
+                    <h4>How to order from Your Website ?</h4>
                 </div>
             </div>
         </div>

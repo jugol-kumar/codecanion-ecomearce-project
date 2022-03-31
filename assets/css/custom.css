@@ -752,6 +752,22 @@ color: white;
 /*user profile icon hover dropdeown menu*/
 
 
+/* carosel height manage*/
+.carousel{
+    min-height: 325px;
+}
+.carousel-inner{
+    height: 100%;
+}
+.carousel-item-next, .carousel-item-prev, .carousel-item.active{
+    height: 100%;
+}
+.carousel .carousel-item img{
+    height: 100%;
+}
+
+/* carosel height manage*/
+
 
 
 @media (min-width: 300px) {

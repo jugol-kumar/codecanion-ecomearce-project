@@ -13619,7 +13619,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "row category" }, [
         _c("div", { staticClass: "col-md-12" }, [
           _c("div", { staticClass: "title text-center" }, [
-            _c("h4", [_vm._v("How to order from Groco ?")])
+            _c("h4", [_vm._v("How to order from Your Website ?")])
           ])
         ])
       ]),
@@ -13781,7 +13781,7 @@ var staticRenderFns = [
         _c("div", { staticClass: "row category" }, [
           _c("div", { staticClass: "col-md-12" }, [
             _c("div", { staticClass: "title text-center" }, [
-              _c("h4", [_vm._v("Why People Love Groco")])
+              _c("h4", [_vm._v("Why People Love Your Website")])
             ])
           ])
         ]),

@@ -48,26 +48,26 @@
 
     </div>
 </div>
-<div class="footer-secondary  p30" style="background-color:#F8F8F8;">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-sm-12 xs-mb30">
-                <div class="social-icons ">
-                    <ul>
-                        <li><a href="{{ $shop_info->facebook }}"><i class="lni-facebook-filled"></i></a></li>
-                        <li><a href="{{ $shop_info->twitter }}"><i class="lni-twitter-filled"></i></a></li>
-                        <li><a href="{{ $shop_info->youtube }}"><i class="lni-youtube"></i></a></li>
-                        <!-- <li><a href="#"><i class="lni-instagram-filled"></i></a></li>
-                        <li><a href="#"><i class="lni-pinterest"></i></a></li> -->
-                    </ul>
-                </div>
-            </div>
-                <div class="col-lg-6 col-sm-12 col-xs-12">
-                    <div class="footer-copyright text-r xs-text-c">
-                        <span>{{ $shop_info->footer_text }}</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+{{--<div class="footer-secondary  p30" style="background-color:#F8F8F8;">--}}
+{{--    <div class="container">--}}
+{{--        <div class="row">--}}
+{{--            <div class="col-lg-6 col-sm-12 xs-mb30">--}}
+{{--                <div class="social-icons ">--}}
+{{--                    <ul>--}}
+{{--                        <li><a href="{{ $shop_info->facebook }}"><i class="lni-facebook-filled"></i></a></li>--}}
+{{--                        <li><a href="{{ $shop_info->twitter }}"><i class="lni-twitter-filled"></i></a></li>--}}
+{{--                        <li><a href="{{ $shop_info->youtube }}"><i class="lni-youtube"></i></a></li>--}}
+{{--                        <!-- <li><a href="#"><i class="lni-instagram-filled"></i></a></li>--}}
+{{--                        <li><a href="#"><i class="lni-pinterest"></i></a></li> -->--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--                <div class="col-lg-6 col-sm-12 col-xs-12">--}}
+{{--                    <div class="footer-copyright text-r xs-text-c">--}}
+{{--                        <span>{{ $shop_info->footer_text }}</span>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 </footer>

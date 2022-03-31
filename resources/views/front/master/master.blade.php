@@ -36,6 +36,9 @@
         .my-radio {
             display: none;
         }
+        .margin_left_250{
+            margin-left: 0 !important;
+        }
 
 
     </style>
@@ -46,7 +49,7 @@
             }
 
             .sidebar.active {
-                margin-left: 0px !important;
+                margin-left: 0 !important;
                 transition: all ease 1s;
             }
         </style>
@@ -71,6 +74,14 @@
         </script>
 @endif
 <!-- google analytics  -->
+
+{{--    conditional margin left style --}}
+
+    @php
+      $isActive = request()->path() == "login" ? true : false;
+    @endphp
+
+
 </head>
 
 <body id="app_body">
@@ -157,10 +168,12 @@
 
     @include('front.include.left_sidebar')
 
+
+{{--        {{ dd(request()->path("/login")) }}--}}
     <!-- end Sidebar  -->
 
         <!-- Page Content  -->
-        <div id="content">
+        <div id="content" @class(['margin_left_250' => $isActive])>
             <!-- search result apear  -->
             @php
                 $currency = getCurrentCurrency();
@@ -206,14 +219,14 @@
 <script src="{{ asset('assets/js/magnific.js') }}"></script>
 <!--main js-->
 <script src="{{ asset('assets/js/main.js') }}"></script>
-
-
+{{--firebase js--}}
 @stack('script')
 
+<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+<script src="{{ asset('assets/js/jquery-3.4.1.js') }}"></script>
 
 <script type="text/javascript">
     $(document).ready(function ($) {
-
         @foreach (['warning', 'success', 'error'] as $msg)
         @if(Session::has($msg))
         @switch($msg)
@@ -282,6 +295,116 @@
     //     });
     // }
 </script>
+
+
+<script>
+    const firebaseConfig = {
+        apiKey              : "AIzaSyCp0mqhw22lDlehJcVCl9UN-I_3xVVfWHM",
+        authDomain          : "ecomb1.firebaseapp.com",
+        projectId           : "ecomb1",
+        storageBucket       : "ecomb1.appspot.com",
+        messagingSenderId   : "777578552114",
+        appId               : "1:777578552114:web:ab28772d0e24982c44d52b",
+        measurementId       : "G-H4KDQZ5R8H"
+    };
+    firebase.initializeApp(firebaseConfig);
+</script>
+
+<script>
+
+    window.onload=function () {
+        render();
+    };
+
+    function render() {
+        window.recaptchaVerifier=new firebase.auth.RecaptchaVerifier('recaptcha-container',  {
+            'size': 'invisible',
+                'callback': function (response) {
+                    // reCAPTCHA solved, allow signInWithPhoneNumber.
+                    console.log('recaptcha resolved');
+                    console.log(response);
+                }
+            });
+        recaptchaVerifier.render();
+    }
+
+    function phoneSendAuth(e) {
+
+        var number = $("#number").val();
+        alert(number);
+
+        firebase.auth().signInWithPhoneNumber(number,window.recaptchaVerifier).then(function (confirmationResult) {
+            window.confirmationResult=confirmationResult;
+            coderesult=confirmationResult;
+            console.log(coderesult);
+            $("#sentSuccess").text("Message Sent Successfully.");
+            $("#sentSuccess").show();
+
+            $("#number").val(coderesult.phone_number);
+
+
+            $("#phoneSection").addClass("d-none");
+            $("#codeSection").removeClass('d-none');
+
+
+
+
+
+            var seconds=60;
+            var timer;
+            function myFunction() {
+                if(seconds < 60) { // I want it to say 1:00, not 60
+                    document.getElementById("seeTime").innerHTML = seconds;
+                }
+                if (seconds >0 ) { // so it doesn't go to -1
+                    seconds--;
+                } else {
+                    clearInterval(timer);
+                }
+            }
+
+            myFunction();
+            timer = window.setInterval(function (){
+                $("#sendAgain").attr("disabled", true);
+            }, 1000);
+
+            $("#sendAgain").attr("disabled", false);
+
+
+        }).catch(function (error) {
+            $("#error").text(error.message);
+            $("#error").show();
+            $("#phoneSection").addClass('d-none');
+
+
+        });
+
+    }
+
+    function codeverify() {
+        var code = $("#verificationCode").val();
+
+        coderesult.confirm(code).then(function (result) {
+            var user=result.user;
+            console.log(user);
+            $("#successRegsiter").text("you are register Successfully.");
+            $("#successRegsiter").show();
+
+        }).catch(function (error) {
+            $("#error").text(error.message);
+            $("#error").show();
+        });
+    }
+
+
+</script>
+
+
+
+
+
+
+
 </body>
 
 </html>

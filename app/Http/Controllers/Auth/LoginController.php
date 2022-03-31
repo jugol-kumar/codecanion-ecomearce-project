@@ -53,7 +53,8 @@ class LoginController extends Controller
         $social_provider = SocialCreadential::select('id', 'provider')
                            ->where('status', '=', 1)
                            ->get();
-        return view('auth.login',['social_provider' => $social_provider]);
+        return view('auth.sent_otp_form', ['social_provider' => $social_provider, "phone" => null]);
+//        return view('auth.login',['social_provider' => $social_provider]);
     }
 
    public function authenticated(Request $request, $user)
@@ -70,7 +71,7 @@ class LoginController extends Controller
                 Auth::login($user);
                 return redirect()->intended('profile');
             } else {
-                
+
                 $user = User::create([
                     'name' => $userSocial->getName(),
                     'email' => $userSocial->getEmail(),
@@ -79,7 +80,7 @@ class LoginController extends Controller
                 // return redirect($this->redirectTo);
                 return redirect()->intended('profile');
             }
-            
+
         } catch (\Exception $e) {
             Session::flash('error','Something went wrong!');
             return redirect()->back();
