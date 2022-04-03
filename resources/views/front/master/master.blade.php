@@ -212,12 +212,47 @@
             @yield('content')
 
         <!--start email subscribe-->
-            <section class="subscribe clearfix mt50 text-center">
-                <user-subscribe></user-subscribe>
-            </section>
+{{--            <section class="subscribe clearfix mt50 text-center">--}}
+{{--                <user-subscribe></user-subscribe>--}}
+{{--            </section>--}}
             <!--end email subscribe-->
 
-            @include('front.include.footer')
+        <!--pay us with-->
+        <div class="payment-delivery">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="left-side-content">
+                        <div class="single">
+                            <img src="{{ asset('images/fast-delivery.png') }}" alt="">
+                            <p>30 min delivery</p>
+                        </div>
+                        <div class="single">
+                            <img src="{{ asset('images/pay.png') }}" alt="">
+                            <p>cash on delivery</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="right-side-content">
+                        <ul>
+                            <li>Pay With</li>
+                            <li><img src="{{ asset('images/paypal.png') }}" alt=""></li>
+                            <li><img src="{{ asset('images/money.png') }}" alt=""></li>
+                            <li><img src="{{ asset('images/visa.png') }}" alt=""></li>
+                            <li><img src="{{ asset('images/taka.png') }}" alt=""></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--pay us with-->
+
+
+
+
+
+
+        @include('front.include.footer')
         </div>
     </div>
 
@@ -360,14 +395,8 @@
             $("#sentSuccess").show();
 
             $("#number").val(coderesult.phone_number);
-
-
             $("#phoneSection").addClass("d-none");
             $("#codeSection").removeClass('d-none');
-
-
-
-
 
             var seconds=60;
             var timer;
@@ -388,14 +417,10 @@
             }, 1000);
 
             $("#sendAgain").attr("disabled", false);
-
-
         }).catch(function (error) {
             $("#error").text(error.message);
             $("#error").show();
             $("#phoneSection").addClass('d-none');
-
-
         });
 
     }

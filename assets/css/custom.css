@@ -873,7 +873,46 @@ color: white;
 
 /* carosel height manage*/
 
+/*bottom pay with us section*/
 
+.left-side-content {
+    display: flex;
+    align-items: center;
+}
+.left-side-content .single {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-right: 20px;
+}
+.left-side-content .single img{
+    width: 20px;
+}
+.left-side-content .single p{
+    padding-left: 10px;
+    padding-top: 7px;
+    font-size: 15px;
+}
+.payment-delivery {
+    background: #e7e5e7;
+    padding: 0 7px;
+}
+
+.right-side-content{
+    float: right;
+}
+.right-side-content ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.right-side-content ul li{
+    margin: 0px 10px;
+}
+.right-side-content ul li img{
+    height: 45px;
+}
+/*bottom pay with us section*/
 
 @media (min-width: 300px) {
     #businessApp{
