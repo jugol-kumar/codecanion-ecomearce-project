@@ -331,11 +331,11 @@ color: white;
     background: #ff686e;
     float: right;
     color: white;
-    padding: 17px 45px;
+    padding: 17px 37px;
     font-weight: bold;
     font-size: 14px;
     position: absolute;
-    right: -33%;
+    right: 0%;
 }
 .signin-button:focus{
     outline: none;
@@ -343,6 +343,107 @@ color: white;
 
 }
 /* right side sign in button design*/
+
+
+/*others button css*/
+
+.other-buttons {
+    display: inline-flex;
+    padding: inherit;
+    align-items: center;
+    justify-content: space-between;
+    float: left;
+    width: 52%;
+    height: inherit;
+}
+.other-buttons .language-button{
+    display: flex;
+}
+.other-buttons .language-button .bangla-text{
+    transition: 0.3s all ease;
+}
+.other-buttons .language-button .bangla-text:hover{
+    color: #ff686e;
+}
+.other-buttons a .middle-span {
+    color: #615e58;
+    margin: 0px 6px;
+    font-weight: bold;
+}
+.other-buttons a .middle-span{
+    color: #615e58;
+}
+.other-buttons a{
+    border: none !important;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 17px 23px;
+    border-left: 1px solid #dfb547 !important;
+    border-right: 1px solid #dfb547 !important;
+    color: #615e58 !important;
+    max-height: 55px;
+}
+.other-buttons .other-button-hover{
+    transition: 0.3s all ease;
+}
+.other-buttons .other-button-hover span{
+    color: #615e58;
+}
+.other-buttons .other-button-hover:hover{
+    background:#dfb547;
+}
+.other-buttons a i{
+    font-size: 19px;
+    font-weight: 900;
+    color: #615E58;
+}
+.other-buttons .home-button{
+    min-width: 100px;
+    height: inherit;
+    align-items: center;
+    color: black;
+    font-size: 14px;
+    justify-content: space-between;
+}
+.other-buttons .help-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+/*others button css*/
+/*google translate*/
+#google_element {
+    display: flex;
+    float: right;
+    align-items: center;
+    justify-content: center;
+    margin-left: 11px;
+}
+.goog-te-banner-frame{
+    display: none !important;
+}
+#app_body{
+    top: 0 !important;
+}
+.goog-logo-link, .goog-logo-link:link, .goog-logo-link:visited, .goog-logo-link:hover, .goog-logo-link:active{
+    display: none !important;
+}
+.goog-te-gadget .goog-te-combo {
+    border: none;
+    background: none;
+    width: 80px;
+}
+
+.goog-te-gadget .goog-te-combo:focus-visible{
+    outline: none;
+}
+/*.skiptranslate{*/
+/*    display: none;*/
+/*}*/
+/*google translate*/
 
 
 
@@ -745,9 +846,9 @@ color: white;
 .user-menu:hover .dropdown-menu1 {
     display: block;
     float: right;
-    position: relative;
-    bottom: -55px;
-    left: 41%;
+    position: absolute;
+    bottom: -289%;
+    left: -25%;
 }
 /*user profile icon hover dropdeown menu*/
 

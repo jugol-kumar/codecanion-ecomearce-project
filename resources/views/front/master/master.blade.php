@@ -118,7 +118,6 @@
                             @guest
                                 <li><a href="{{ route('login') }}"><span>Sign in</span></a></li>
                                 <li><a href="{{ route('register') }}"><span>Sign up</span></a></li>
-                                -->
                             @endguest
                             <li><a href="{{ route('order.track') }}">Track Order</a></li>
                         </ul>
@@ -129,11 +128,31 @@
                     <search-box></search-box>
                 </div>
 
-                <div class="d-none d-sm-block col-3 col-lg-3 col-sm-3 text-center">
+                <div class="d-none d-sm-block col pl-0">
                     <div class="user-menu">
+                        <div class="other-buttons">
+                            <a href="" class="other-button-hover">
+                                <div class="d-flex home-button">
+                                    <svg style="fill:#615e58;stroke:#615e58;display:inline-block;vertical-align:middle;" width="20px" height="17px" fill="none" viewBox="0 0 62 60" data-reactid=".w2yjcx1yko.4.0.0.0.4.0.0.0"><path d="M61.2 29.274a2.955 2.955 0 00-.243-4.229L33.26.81c-1.257-1.1-3.272-1.077-4.503.052L.964 26.338A2.938 2.938 0 00.83 30.56l.697.726c1.156 1.203 3.024 1.346 4.17.32l2.078-1.86v27.23A3.023 3.023 0 0010.798 60h10.833a3.023 3.023 0 003.024-3.023V37.926h13.818v19.05c-.024 1.67 1.17 3.023 2.84 3.023h11.48a3.023 3.023 0 003.024-3.024V30.13s.574.502 1.281 1.124c.707.621 2.19.123 3.314-1.113l.788-.866z" data-reactid=".w2yjcx1yko.4.0.0.0.4.0.0.0.0"></path></svg>
+                                    <span>Dhaka</span>
+                                    <i class="lni-chevron-down"></i>
+                                </div>
+                            </a>
+                            <a href="" class="help-button other-button-hover">
+                                <svg style="fill:#615e58;stroke:#615e58;display:inline-block;vertical-align:middle;" width="20px" height="16px" fill="none" viewBox="0 0 44 60" data-reactid=".w2yjcx1yko.4.0.0.0.5.0.0"><path d="M26.63 44.999H15.378c-.5 0-.937.188-1.312.563-.376.375-.563.812-.563 1.312v11.251c0 .5.188.938.563 1.313.375.374.812.562 1.312.562h11.25c.5 0 .938-.188 1.312-.563.376-.374.564-.812.564-1.312v-11.25c0-.5-.188-.938-.564-1.313-.373-.376-.812-.563-1.312-.563zM41.396 11.32c-1.282-2.36-2.937-4.351-4.97-5.977-2.03-1.624-4.312-2.922-6.843-3.89C27.052.485 24.536 0 22.036 0c-9.5 0-16.75 4.156-21.75 12.47a1.85 1.85 0 00-.258 1.311c.078.469.32.86.727 1.172l7.687 5.86c.407.25.797.374 1.173.374.562 0 1.046-.25 1.453-.75 2.25-2.812 3.922-4.609 5.015-5.39 1.344-.907 3.031-1.36 5.063-1.36 1.906 0 3.585.5 5.039 1.5 1.453 1 2.179 2.156 2.179 3.469 0 1.468-.39 2.656-1.172 3.563-.78.905-2.094 1.78-3.938 2.624-2.437 1.094-4.672 2.79-6.702 5.086-2.032 2.297-3.047 4.743-3.047 7.336v2.11c0 .594.163 1.18.492 1.758.328.578.726.867 1.195.867h11.25c.5 0 .938-.242 1.313-.728.374-.483.562-.99.562-1.521 0-.781.43-1.83 1.289-3.14.86-1.313 1.93-2.33 3.212-3.049a95.29 95.29 0 002.858-1.664c.689-.421 1.587-1.102 2.697-2.039 1.109-.938 1.968-1.868 2.577-2.79.61-.92 1.157-2.116 1.641-3.586.485-1.468.727-3.047.727-4.734 0-2.594-.641-5.07-1.922-7.428z" data-reactid=".w2yjcx1yko.4.0.0.0.5.0.0.0"></path></svg>
+                                <span>Help</span>
+                            </a>
+                            <span id="google_element"></span>
+{{--                            <a href="" class="language-button" >--}}
+{{--                                <span style="color: #ff686e;">EN</span>--}}
+{{--                                <span class="middle-span">|</span>--}}
+{{--                                <span class="bangla-text" >বাং</span>--}}
+{{--                            </a>--}}
+
+                        </div>
                         @guest
                             <a href="{{ route('login') }}">
-                                <button class="signin-button">Sign In / Register</button>
+                                <button class="signin-button">Sign In</button>
                             </a>
                         @endguest
 
@@ -397,6 +416,12 @@
     }
 
 
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+<script>
+    function loadGoogleTranslate(){
+        new google.translate.TranslateElement("google_element")
+    }
 </script>
 
 
