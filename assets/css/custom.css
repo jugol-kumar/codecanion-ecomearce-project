@@ -335,7 +335,11 @@ color: white;
     font-weight: bold;
     font-size: 14px;
     position: absolute;
-    right: 0%;
+    right: 0;
+    overflow: hidden;
+    max-width: 174px;
+    min-width: 174px;
+    max-height: 55px;
 }
 .signin-button:focus{
     outline: none;
@@ -377,7 +381,7 @@ color: white;
     border: none !important;
     font-weight: bold;
     font-size: 14px;
-    padding: 17px 23px;
+    padding: 17px 8px;
     border-left: 1px solid #dfb547 !important;
     border-right: 1px solid #dfb547 !important;
     color: #615e58 !important;
@@ -420,7 +424,7 @@ color: white;
     float: right;
     align-items: center;
     justify-content: center;
-    margin-left: 11px;
+    margin-left: 6%;
 }
 .goog-te-banner-frame{
     display: none !important;
