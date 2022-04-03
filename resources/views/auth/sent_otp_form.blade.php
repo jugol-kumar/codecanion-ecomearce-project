@@ -22,45 +22,13 @@
     <section class="signin-form">
         <div class="bg-overlay pt50 pb50">
             <div class="container">
-{{--                <div class="row">--}}
-{{--                    <h1>Laravel Phone Number Authentication using Firebase - ItSolutionStuff.com</h1>--}}
-{{--                    <div class="alert alert-danger" id="error" style="display: none;"></div>--}}
-{{--                    <div class="card">--}}
-{{--                        <div class="card-header">--}}
-{{--                            Enter Phone Number--}}
-{{--                        </div>--}}
-{{--                        <div class="card-body">--}}
-{{--                            <div class="alert alert-success" id="sentSuccess" style="display: none;"></div>--}}
-{{--                            <form>--}}
-{{--                                <label>Phone Number:</label>--}}
-{{--                                <input type="text" id="number" class="form-control" placeholder="+91********">--}}
-{{--                                <div id="recaptcha-container"></div>--}}
-{{--                                <button type="button" class="btn btn-success" onclick="phoneSendAuth();">SendCode</button>--}}
-{{--                            </form>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-
-{{--                    <div class="card" style="margin-top: 10px">--}}
-{{--                        <div class="card-header">--}}
-{{--                            Enter Verification code--}}
-{{--                        </div>--}}
-{{--                        <div class="card-body">--}}
-{{--                            <div class="alert alert-success" id="successRegsiter" style="display: none;"></div>--}}
-{{--                            <form>--}}
-{{--                                <input type="text" id="verificationCode" class="form-control" placeholder="Enter verification code">--}}
-{{--                                <button type="button" class="btn btn-success" onclick="codeverify();">Verify code</button>--}}
-{{--                            </form>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
 
                 <div class="alert alert-danger" id="error" style="display: none;"></div>
                 <div class="alert alert-success" id="sentSuccess" style="display: none;"></div>
                 <div class="alert alert-success" id="successRegsiter" style="display: none;"></div>
 
 
-                <div class="row">
+                <div class="row mt50">
                     <div class="col-lg-12 col-sm-12">
                         <div class="form bg-white bg-shadow">
                             <div class="heading text-center clearfix">
@@ -76,10 +44,34 @@
                                     <div id="recaptcha-container"></div>
                                     <button type="button" onclick="phoneSendAuth();"class="button button-md bg-dark2 color-white mb20 theme-background" style="width: 100%">{{ __('Login') }}</button>
                                 </form>
+
+
+                                <div class="account-info text-center clearfix width-res">
+                                    <h5 class="color-dark">
+                                        <a class="float-l te-und-ho" href="{{ route('password.request') }}">Forget
+                                            Password?</a>
+                                        <a href="{{ url('register') }}" class="float-r te-und-ho">Create Account</a>
+                                    </h5>
+                                </div>
+                                <div class="register-social text-center mt20">
+                                    <p class="login-with-social">Login with Social Media</p>
+                                    @foreach($social_provider as $value)
+                                        <a href="{{ url('login/'.$value->provider) }}"
+                                           class="button ml-social button-sm
+                                        @if($value->provider == 'facebook') bg-fb @endif
+                                           @if($value->provider == 'google') bg-plus @endif
+                                           @if($value->provider == 'twitter') bg-info @endif
+                                               color-white mb10">
+                                            <i class="lni lni-{{ $value->provider }}" aria-hidden="true"></i>
+                                        </a>
+                                    @endforeach
+                                </div>
                             </div>
 
 
 
+
+                            {{--  this is section for verify code section --}}
                             <div class="p30 d-none" id="codeSection">
                                 <form method="POST" action="{{ route('login') }}">
                                     @csrf
@@ -90,10 +82,9 @@
                                     <button type="button" onclick="codeverify();" class="button button-md bg-dark2 color-white mb20 theme-background" style="width: 100%">{{ __('Login') }}</button>
                                 </form>
                                 <button type="submit" onclick="phoneSendAuth()" id="sendAgain" class="btn btn-link text-center">Din't get code ? Click here to Resend Code</button>
-
                                 <p id="seeTime" class="float-right"></p>
-
                             </div>
+                            {{--  this is section for verify code section --}}
 
 
                         </div>

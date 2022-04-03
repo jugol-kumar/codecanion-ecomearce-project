@@ -37,8 +37,12 @@
             display: none;
         }
         .margin_left_250{
+            margin-left: 250px !important;
+        }
+        .margin_left_0{
             margin-left: 0 !important;
         }
+
 
 
     </style>
@@ -78,7 +82,14 @@
 {{--    conditional margin left style --}}
 
     @php
-      $isActive = request()->path() == "login" ? true : false;
+        if (request()->path() == "login" ||
+            request()->path() =="register" ||
+            request()->path() == "password/reset"){
+            $isActive = true;
+        }else{
+            $isActive = false;
+        }
+
     @endphp
 
 
@@ -123,6 +134,7 @@
                         </ul>
                     </div>
                 </div>
+
                 <!-- end mobile profile  -->
                 <div class="col-12 col-lg-6 col-sm-6">
                     <search-box></search-box>
@@ -192,7 +204,7 @@
     <!-- end Sidebar  -->
 
         <!-- Page Content  -->
-        <div id="content" @class(['margin_left_250' => $isActive])>
+        <div id="content" class="{{ $isActive ? "margin_left_0" : " margin_left_250" }}">
             <!-- search result apear  -->
             @php
                 $currency = getCurrentCurrency();
@@ -212,14 +224,14 @@
             @yield('content')
 
         <!--start email subscribe-->
-{{--            <section class="subscribe clearfix mt50 text-center">--}}
-{{--                <user-subscribe></user-subscribe>--}}
-{{--            </section>--}}
+            <section class="subscribe clearfix mt50 text-center">
+                <user-subscribe></user-subscribe>
+            </section>
             <!--end email subscribe-->
 
         <!--pay us with-->
         <div class="payment-delivery">
-            <div class="row">
+            <div class="row mr-0">
                 <div class="col-md-6">
                     <div class="left-side-content">
                         <div class="single">
@@ -313,26 +325,26 @@
          theme_color="{{ $shop_info->theme_color }}"
     >
     </div>
-    <script>
-        window.fbAsyncInit = function () {
-            FB.init({
-                appId: '173637076534990',
-                autoLogAppEvents: true,
-                xfbml: true,
-                version: 'v2.11'
-            });
-        };
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {
-                return;
-            }
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "https://connect.facebook.net/he_EN/sdk/xfbml.customerchat.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
+{{--    <script>--}}
+{{--        window.fbAsyncInit = function () {--}}
+{{--            FB.init({--}}
+{{--                appId: '173637076534990',--}}
+{{--                autoLogAppEvents: true,--}}
+{{--                xfbml: true,--}}
+{{--                version: 'v2.11'--}}
+{{--            });--}}
+{{--        };--}}
+{{--        (function (d, s, id) {--}}
+{{--            var js, fjs = d.getElementsByTagName(s)[0];--}}
+{{--            if (d.getElementById(id)) {--}}
+{{--                return;--}}
+{{--            }--}}
+{{--            js = d.createElement(s);--}}
+{{--            js.id = id;--}}
+{{--            js.src = "https://connect.facebook.net/he_EN/sdk/xfbml.customerchat.js";--}}
+{{--            fjs.parentNode.insertBefore(js, fjs);--}}
+{{--        }(document, 'script', 'facebook-jssdk'));--}}
+{{--    </script>--}}
 @endif
 
 <script type="text/javascript">
@@ -382,15 +394,52 @@
         recaptchaVerifier.render();
     }
 
+    $("#signUpButton").on("click", function (){
+        event.preventDefault();
+        // alert("ok");
+        let name = $("#name").val();
+        let email = $("#email").val();
+        let phone  = $("#number").val();
+        let password = $("#password").val();
+        let cPassword = $("#password-confirm").val();
+
+        if (name == ""){
+            $('#error').text('Somthing Want Wrong')
+            $("#name").addClass('is-invalid');
+            $("#error").show();
+        }
+        if (email == ""){
+            $('#error').text('Somthing Want Wrong')
+            $("#email").addClass('is-invalid');
+            $("#error").show();
+        }
+        if (phone == ""){
+            $('#error').text('Somthing Want Wrong')
+            $("#number").addClass('is-invalid');
+            $("#error").show();
+        }
+        if (password == ""){
+            $('#error').text('Somthing Want Wrong')
+            $("#password").addClass('is-invalid');
+            $("#error").show();
+        }
+        if (cPassword == "" || cPassword != password){
+            $('#error').text('Somthing Want Wrong')
+            $("#password-confirm").addClass('is-invalid');
+            $("#error").show();
+        }
+        phoneSendAuth();
+
+    })
+
     function phoneSendAuth(e) {
-
         var number = $("#number").val();
-        alert(number);
-
+        // alert(number);
         firebase.auth().signInWithPhoneNumber(number,window.recaptchaVerifier).then(function (confirmationResult) {
             window.confirmationResult=confirmationResult;
             coderesult=confirmationResult;
             console.log(coderesult);
+            $("#error").hide();
             $("#sentSuccess").text("Message Sent Successfully.");
             $("#sentSuccess").show();
 
@@ -415,12 +464,12 @@
             timer = window.setInterval(function (){
                 $("#sendAgain").attr("disabled", true);
             }, 1000);
-
             $("#sendAgain").attr("disabled", false);
         }).catch(function (error) {
+            $("#successRegsiter").hide();
             $("#error").text(error.message);
             $("#error").show();
-            $("#phoneSection").addClass('d-none');
+            // $("#phoneSection").addClass('d-none');
         });
 
     }
@@ -430,18 +479,74 @@
 
         coderesult.confirm(code).then(function (result) {
             var user=result.user;
-            console.log(user);
+
+            $("#error").hide();
             $("#successRegsiter").text("you are register Successfully.");
             $("#successRegsiter").show();
+
+
+            let name = $("#name").val();
+            let email = $("#email").val();
+            let phone  = $("#number").val();
+            let password = $("#password").val();
+            let cPassword = $("#password-confirm").val();
+
+
+
+            // console.log(name);
+            // console.log(email);
+            // console.log(phone);
+            // console.log(user.pc.phoneNumber);
+            // console.log(password);
+            // console.log(cPassword);
+
+
+            let data = new FormData();
+
+            data.append('name', name);
+            data.append('email', email);
+            data.append('password', password);
+            data.append('phone', user.pc.phoneNumber);
+
+
+                // "name" : name,
+                // "email" : email,
+                // "phone" : user.pc.phoneNumber,
+                // "password": password,
+
+
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                url: "{{ route('userRegiser') }}",
+                method: "GET",
+                data: {"data":data},
+
+                success: function (data){
+                    console.log(data);
+                }
+            });
+
+
+
+
+
+
 
         }).catch(function (error) {
             $("#error").text(error.message);
             $("#error").show();
+            $("#successRegsiter").hide();
         });
     }
-
-
 </script>
+
+
 <script src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
 <script>
     function loadGoogleTranslate(){

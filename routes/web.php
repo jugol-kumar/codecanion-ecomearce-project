@@ -50,3 +50,8 @@ Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');
 Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
 
 Route::get('product-list', [WebController::class, 'productList']);
+
+
+Route::get('customer/register', function (){
+    return request();
+})->name("userRegiser");

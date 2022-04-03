@@ -50,7 +50,13 @@ Vue.component('flutter-wave-payment', require('./components/front/payment/Flutte
 // add home other components for home page
 Vue.component('home-order-slider', require('./components/front/home/HomeOrderSlider').default);
 Vue.component('people-love', require('./components/front/home/PeopleLove').default);
+
+
 Vue.component('buisness-deal', require('./components/front/home/BusinessDeal').default);
+Vue.component('customer-register', require('./components/front/home/CustomerRegister').default);
+
+
+
 
 import VueLazyload from 'vue-lazyload';
 
