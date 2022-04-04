@@ -845,14 +845,13 @@ color: white;
     font-weight: bold;
     font-size: 14px;
     position: absolute;
-    right: -33%;
+    right: 0%;
 }
 .user-menu:hover .dropdown-menu1 {
     display: block;
-    float: right;
     position: absolute;
-    bottom: -289%;
-    left: -25%;
+    right: -69%;
+    top: 100%;
 }
 /*user profile icon hover dropdeown menu*/
 

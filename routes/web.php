@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Front\WebController;
+use Illuminate\Http\Request;
 
 Route::get('/', 'Front\WebController@index');
 
@@ -52,6 +53,6 @@ Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCall
 Route::get('product-list', [WebController::class, 'productList']);
 
 
-Route::get('customer/register', function (){
-    return request();
+Route::post('customer/register', function (Request $request){
+    return $request;
 })->name("userRegiser");

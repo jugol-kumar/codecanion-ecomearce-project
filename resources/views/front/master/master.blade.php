@@ -155,16 +155,10 @@
                                 <span>Help</span>
                             </a>
                             <span id="google_element"></span>
-{{--                            <a href="" class="language-button" >--}}
-{{--                                <span style="color: #ff686e;">EN</span>--}}
-{{--                                <span class="middle-span">|</span>--}}
-{{--                                <span class="bangla-text" >বাং</span>--}}
-{{--                            </a>--}}
-
                         </div>
                         @guest
                             <a href="{{ route('login') }}">
-                                <button class="signin-button">Sign In</button>
+                                <button class="signin-button">Sign In Here</button>
                             </a>
                         @endguest
 
@@ -175,13 +169,6 @@
                             <ul class="dropdown-menu1">
                                 <li><a href="{{ route('user.profile') }}"><span>Profile</span></a></li>
                                 <li><a href="{{ route('user.logout') }}"><span>Logout</span></a></li>
-                                {{--                            comment here login and registration url--}}
-
-                                {{--                            @guest--}}
-                                {{--                            <li><a href="{{ route('login') }}"><span>Sign in</span></a></li>--}}
-                                {{--                            <li><a href="{{ route('register') }}"><span>Sign up</span></a></li>--}}
-                                {{--                            @endguest--}}
-                                {{--                            <li><a href="{{ route('order.track') }}">Track Order</a></li>--}}
                             </ul>
                         @endauth
 
@@ -394,9 +381,11 @@
         recaptchaVerifier.render();
     }
 
+
+
     $("#signUpButton").on("click", function (){
         event.preventDefault();
-        // alert("ok");
+
         let name = $("#name").val();
         let email = $("#email").val();
         let phone  = $("#number").val();
@@ -431,14 +420,16 @@
         phoneSendAuth();
 
     })
-
+    //
     function phoneSendAuth(e) {
         var number = $("#number").val();
-        // alert(number);
-        firebase.auth().signInWithPhoneNumber(number,window.recaptchaVerifier).then(function (confirmationResult) {
+        firebase.auth().signInWithPhoneNumber(number,window.recaptchaVerifier)
+            .then(function (confirmationResult) {
             window.confirmationResult=confirmationResult;
             coderesult=confirmationResult;
-            console.log(coderesult);
+
+            // console.log(coderesult);
+
             $("#error").hide();
             $("#sentSuccess").text("Message Sent Successfully.");
             $("#sentSuccess").show();
@@ -465,13 +456,68 @@
                 $("#sendAgain").attr("disabled", true);
             }, 1000);
             $("#sendAgain").attr("disabled", false);
-        }).catch(function (error) {
+
+
+        })
+            .catch(function (error) {
             $("#successRegsiter").hide();
             $("#error").text(error.message);
             $("#error").show();
-            // $("#phoneSection").addClass('d-none');
         });
+    }
+    //
 
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    function sendAjaxRequest(name, email, password, phone){
+        $.ajax({
+            url: "{{ route('register') }}",
+            method: "POST",
+            data:{name:name, email:email, password:password,password_confirmation:password, phone:phone},
+            dataType: "JSON",
+            success: function (data){
+                window.location.href = "/test";
+            },
+            error:function (response){
+                $("#successRegsiter").hide();
+                $("#sentSuccess").hide();
+
+                $("#phoneSection").removeClass('d-none');
+                $("#codeSection").addClass("d-none");
+
+
+                $("#error").text(response.responseJSON.message);
+                $("#error").show();
+                console.log(response.responseJSON);
+
+                $.each(response.responseJSON.errors,function(field_name,error){
+                    $(document).find('[name='+field_name+']').after('<span class="text-strong text-danger">' +error+ '</span>')
+                });
+            }
+        });
+    }
+
+
+
+
+    function validatoinAjaxData(name, email, password, phone){
+        $.ajax({
+            url: "{{ route('register') }}",
+            method: "POST",
+            data:{name:name, email:email, password:password,password_confirmation:password, phone:phone},
+            dataType: "JSON",
+            success: function (data){
+
+            },
+            error:function (response){
+                $.each(response.responseJSON.errors,function(field_name,error){
+                    $(document).find('[name='+field_name+']').after('<span class="text-strong text-danger">' +error+ '</span>')
+                });
+            }
+        });
     }
 
     function codeverify() {
@@ -480,68 +526,32 @@
         coderesult.confirm(code).then(function (result) {
             var user=result.user;
 
+
             $("#error").hide();
             $("#successRegsiter").text("you are register Successfully.");
             $("#successRegsiter").show();
 
-
             let name = $("#name").val();
             let email = $("#email").val();
-            let phone  = $("#number").val();
+            let phone  = user.pc.phoneNumber;
             let password = $("#password").val();
             let cPassword = $("#password-confirm").val();
 
-
-
-            // console.log(name);
-            // console.log(email);
-            // console.log(phone);
-            // console.log(user.pc.phoneNumber);
-            // console.log(password);
-            // console.log(cPassword);
-
-
-            let data = new FormData();
-
-            data.append('name', name);
-            data.append('email', email);
-            data.append('password', password);
-            data.append('phone', user.pc.phoneNumber);
-
-
-                // "name" : name,
-                // "email" : email,
-                // "phone" : user.pc.phoneNumber,
-                // "password": password,
+            sendAjaxRequest(name, email, password, phone);
 
 
 
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-
-            $.ajax({
-                url: "{{ route('userRegiser') }}",
-                method: "GET",
-                data: {"data":data},
-
-                success: function (data){
-                    console.log(data);
-                }
-            });
-
-
-
-
-
+            console.log("call code verify method success");
 
 
         }).catch(function (error) {
+
             $("#error").text(error.message);
             $("#error").show();
             $("#successRegsiter").hide();
+
+
+            console.log("call code verify method error")
         });
     }
 </script>
