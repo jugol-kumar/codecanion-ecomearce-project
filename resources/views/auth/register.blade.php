@@ -71,7 +71,12 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="form-group">
-                                            <input type="text" id="number" class="sign-up-input form-control" required placeholder="+91********">
+                                            <input type="text"
+                                                   id="number"
+                                                   name="phone"
+                                                   class="sign-up-input form-control"
+                                                   required
+                                                   placeholder="+91********">
                                         </div>
                                         <div id="recaptcha-container"></div>
                                     </div>

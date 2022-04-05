@@ -23,13 +23,12 @@
         <div class="bg-overlay pt50 pb50">
             <div class="container">
 
-                <div class="alert alert-danger" id="error" style="display: none;"></div>
-                <div class="alert alert-success" id="sentSuccess" style="display: none;"></div>
-                <div class="alert alert-success" id="successRegsiter" style="display: none;"></div>
-
 
                 <div class="row mt50">
                     <div class="col-lg-12 col-sm-12">
+                        <div class="alert alert-danger" id="error" style="display: none;"></div>
+                        <div class="alert alert-success" id="sentSuccess" style="display: none;"></div>
+                        <div class="alert alert-success" id="successRegsiter" style="display: none;"></div>
                         <div class="form bg-white bg-shadow">
                             <div class="heading text-center clearfix">
                                 <h4 class="pt10 theme-color login-headline">Sign in</h4>
@@ -39,12 +38,19 @@
                                 <form method="POST" action="{{ route('login') }}">
                                     @csrf
                                     <div class="form-group">
-                                        <input type="text" id="number" class="sign-up-input form-control" placeholder="+91********">
+                                        <input type="text" id="number" name="number" class="sign-up-input form-control" value="+88">
+                                        <p class="ptsan-regular text-danger">
+                                            @error('number')
+                                            {{ $message }}
+                                            @enderror
+                                        </p>
                                     </div>
                                     <div id="recaptcha-container"></div>
-                                    <button type="button" onclick="phoneSendAuth();"class="button button-md bg-dark2 color-white mb20 theme-background" style="width: 100%">{{ __('Login') }}</button>
+                                    <button type="submit"
+                                            id="customerLogin"
+                                            class="button button-md bg-dark2 color-white mb20 theme-background"
+                                            style="width: 100%">{{ __('Login Here') }}</button>
                                 </form>
-
 
                                 <div class="account-info text-center clearfix width-res">
                                     <h5 class="color-dark">
@@ -79,14 +85,12 @@
                                         <input type="text" id="verificationCode" class="sign-up-input form-control" placeholder="Enter verification code">
                                     </div>
                                     <div id="recaptcha-container"></div>
-                                    <button type="button" onclick="codeverify();" class="button button-md bg-dark2 color-white mb20 theme-background" style="width: 100%">{{ __('Login') }}</button>
+                                    <button type="button" onclick="codeverify(loginReqs=true);" class="button button-md bg-dark2 color-white mb20 theme-background" style="width: 100%">{{ __('Login') }}</button>
                                 </form>
                                 <button type="submit" onclick="phoneSendAuth()" id="sendAgain" class="btn btn-link text-center">Din't get code ? Click here to Resend Code</button>
                                 <p id="seeTime" class="float-right"></p>
                             </div>
                             {{--  this is section for verify code section --}}
-
-
                         </div>
                     </div>
                 </div>

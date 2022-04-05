@@ -37,7 +37,7 @@
             display: none;
         }
         .margin_left_250{
-            margin-left: 250px !important;
+            margin-left: 220px !important;
         }
         .margin_left_0{
             margin-left: 0 !important;
@@ -98,7 +98,6 @@
 <body id="app_body">
 <div id="front-wrapper">
     <header class="header theme-background">
-        {{--        "container-fluid" class change--}}
         <div class="container-fluid">
             <div class="row">
                 <div class="col col-lg-1 col-sm-1 d-lg-none d-md-none">
@@ -363,35 +362,29 @@
     firebase.initializeApp(firebaseConfig);
 </script>
 
-<script>
 
+<script>
     window.onload=function () {
         render();
     };
-
     function render() {
         window.recaptchaVerifier=new firebase.auth.RecaptchaVerifier('recaptcha-container',  {
             'size': 'invisible',
-                'callback': function (response) {
-                    // reCAPTCHA solved, allow signInWithPhoneNumber.
-                    console.log('recaptcha resolved');
-                    console.log(response);
-                }
-            });
+            'callback': function (response) {
+                // reCAPTCHA solved, allow signInWithPhoneNumber.
+                console.log('recaptcha resolved');
+                console.log(response);
+            }
+        });
         recaptchaVerifier.render();
     }
-
-
-
     $("#signUpButton").on("click", function (){
         event.preventDefault();
-
         let name = $("#name").val();
         let email = $("#email").val();
         let phone  = $("#number").val();
         let password = $("#password").val();
         let cPassword = $("#password-confirm").val();
-
         if (name == ""){
             $('#error').text('Somthing Want Wrong')
             $("#name").addClass('is-invalid');
@@ -418,55 +411,58 @@
             $("#error").show();
         }
         phoneSendAuth();
-
     })
     //
     function phoneSendAuth(e) {
         var number = $("#number").val();
         firebase.auth().signInWithPhoneNumber(number,window.recaptchaVerifier)
             .then(function (confirmationResult) {
-            window.confirmationResult=confirmationResult;
-            coderesult=confirmationResult;
-
-            // console.log(coderesult);
-
-            $("#error").hide();
-            $("#sentSuccess").text("Message Sent Successfully.");
-            $("#sentSuccess").show();
-
-            $("#number").val(coderesult.phone_number);
-            $("#phoneSection").addClass("d-none");
-            $("#codeSection").removeClass('d-none');
-
-            var seconds=60;
-            var timer;
-            function myFunction() {
-                if(seconds < 60) { // I want it to say 1:00, not 60
-                    document.getElementById("seeTime").innerHTML = seconds;
+                window.confirmationResult=confirmationResult;
+                coderesult=confirmationResult;
+                // console.log(coderesult);
+                $("#error").hide();
+                $("#sentSuccess").text("Message Sent Successfully.");
+                $("#sentSuccess").show();
+                $("#number").val(coderesult.phone_number);
+                $("#phoneSection").addClass("d-none");
+                $("#codeSection").removeClass('d-none');
+                var seconds=60;
+                var timer;
+                function myFunction() {
+                    if(seconds < 60) { // I want it to say 1:00, not 60
+                        document.getElementById("seeTime").innerHTML = seconds;
+                    }
+                    if (seconds >0 ) { // so it doesn't go to -1
+                        seconds--;
+                    } else {
+                        clearInterval(timer);
+                    }
                 }
-                if (seconds >0 ) { // so it doesn't go to -1
-                    seconds--;
-                } else {
-                    clearInterval(timer);
-                }
-            }
-
-            myFunction();
-            timer = window.setInterval(function (){
-                $("#sendAgain").attr("disabled", true);
-            }, 1000);
-            $("#sendAgain").attr("disabled", false);
-
-
-        })
+                myFunction();
+                timer = window.setInterval(function (){
+                    $("#sendAgain").attr("disabled", true);
+                }, 1000);
+                $("#sendAgain").attr("disabled", false);
+            })
             .catch(function (error) {
-            $("#successRegsiter").hide();
-            $("#error").text(error.message);
-            $("#error").show();
-        });
+                $("#successRegsiter").hide();
+                $("#error").text(error.message);
+                $("#error").show();
+
+                console.log("this call form send sms by number in phone verify method");
+
+
+                let name = $("#name").val();
+                let email = $("#email").val();
+                // let phone  = user.pc.phoneNumber;
+                var number = $("#number").val();
+                let password = $("#password").val();
+                let cPassword = $("#password-confirm").val();
+                sendAjaxRequest(name, email, password, number);
+                console.log("call code verify method success");
+            });
     }
     //
-
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -480,29 +476,22 @@
             dataType: "JSON",
             success: function (data){
                 window.location.href = "/test";
+                // console.log(data);
             },
             error:function (response){
                 $("#successRegsiter").hide();
                 $("#sentSuccess").hide();
-
                 $("#phoneSection").removeClass('d-none');
                 $("#codeSection").addClass("d-none");
-
-
                 $("#error").text(response.responseJSON.message);
                 $("#error").show();
                 console.log(response.responseJSON);
-
                 $.each(response.responseJSON.errors,function(field_name,error){
                     $(document).find('[name='+field_name+']').after('<span class="text-strong text-danger">' +error+ '</span>')
                 });
             }
         });
     }
-
-
-
-
     function validatoinAjaxData(name, email, password, phone){
         $.ajax({
             url: "{{ route('register') }}",
@@ -510,7 +499,6 @@
             data:{name:name, email:email, password:password,password_confirmation:password, phone:phone},
             dataType: "JSON",
             success: function (data){
-
             },
             error:function (response){
                 $.each(response.responseJSON.errors,function(field_name,error){
@@ -519,39 +507,25 @@
             }
         });
     }
-
     function codeverify() {
         var code = $("#verificationCode").val();
-
         coderesult.confirm(code).then(function (result) {
             var user=result.user;
-
-
             $("#error").hide();
             $("#successRegsiter").text("you are register Successfully.");
             $("#successRegsiter").show();
 
-            let name = $("#name").val();
-            let email = $("#email").val();
-            let phone  = user.pc.phoneNumber;
-            let password = $("#password").val();
-            let cPassword = $("#password-confirm").val();
 
-            sendAjaxRequest(name, email, password, phone);
-
-
-
-            console.log("call code verify method success");
-
+            console.log("run success method in code verify method");
 
         }).catch(function (error) {
-
             $("#error").text(error.message);
             $("#error").show();
             $("#successRegsiter").hide();
-
-
             console.log("call code verify method error")
+
+
+
         });
     }
 </script>

@@ -57,7 +57,8 @@ class LoginController extends Controller
 //        return view('auth.login',['social_provider' => $social_provider]);
     }
 
-   public function authenticated(Request $request, $user)
+
+    public function authenticated(Request $request, $user)
     {
         return redirect()->intended('profile');
     }
@@ -86,5 +87,30 @@ class LoginController extends Controller
             return redirect()->back();
         }
     }
+
+    protected function credentials(Request $request)
+    {
+        return $request->only("number");
+    }
+
+    public function login(Request $request)
+    {
+        $this->validateLogin($request);
+
+        $user = User::where("phone", $request->number)->first();
+        if ($user){
+            auth()->login($user);
+            Session::flash("success", "Successfully Login !!!");
+            return redirect()->to('/');
+        }else{
+            Session::flash("error", "Credentials Not Match With Our Record");
+            return redirect()->to('/');
+        }
+
+//        if (auth()->attempt(['phone'=> $request->number])){
+//            return redirect()->to('/');
+//        }
+    }
+
 
 }

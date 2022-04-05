@@ -30,11 +30,11 @@
                                 <h4 class="pt10 theme-color login-headline">Confirm OTP</h4>
                             </div>
                             <div class="p30">
-                                <form method="POST" action="{{ route('submit.otp') }}">
+                                <form method="POST" action="{{ route('login') }}">
                                     @csrf
                                     <div class="form-group">
                                         <input type="hidden" value="{{ $phone }}" name="phone">
-                                        <input 
+                                        <input
                                         class="form-checkout sign-up-input form-control @error('code') is-invalid @enderror"
                                          name="code" value="{{ old('code') }}"
                                           required autocomplete="code" placeholder="Provide OTP Code" autofocus>
@@ -56,7 +56,7 @@
                                 	@csrf
                                     <input type="hidden" name="phone" value="{{ $phone }}">
                                 	<button type="submit" class="btn btn-link text-center">Din't get code ? Click here to Resend Code</button>
-                                	
+
                                 </form>
                             </div>
                         </div>
