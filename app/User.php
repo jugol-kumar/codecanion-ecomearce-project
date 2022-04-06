@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name','email','phone','location_id','avatar','password'
+        'name','email','phone','location_id','avatar','password','code'
     ];
 
     /**
@@ -37,12 +37,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    // relation with order 
+    // relation with order
 
     public function order()
     {
         return $this->hasMany('App\Model\Order\Order');
-    } 
+    }
 
     public function location()
     {
@@ -50,12 +50,12 @@ class User extends Authenticatable
             'id' => 0,
             'city' => 'Not Found'
         ]);
-    } 
+    }
 
     public function user_coupon()
     {
         return $this->hasOne('App\Model\Coupon\UserCoupon');
     }
 
-    
+
 }

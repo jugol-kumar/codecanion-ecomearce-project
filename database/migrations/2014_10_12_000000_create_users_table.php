@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('avatar')->nullable();
             $table->string('address')->nullable();
             $table->timestamp('email_verified_at')->nullable();
+            $table->integer('code')->nullable();
+            $table->tinyInteger('login_active')->default(0);
             $table->string('password')->nullable();
             $table->integer('location_id')->default(0)->nullable();
             $table->double('points')->default(0)->comment = "according points user will get bonus";

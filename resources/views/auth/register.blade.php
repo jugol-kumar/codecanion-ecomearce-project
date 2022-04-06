@@ -35,7 +35,6 @@
                                 <h4 class="pt10 color-dark login-headline">Sign Up</h4>
                                 <small class="heading heading-solid center-block heading-width-100 border-light"></small>
                             </div>
-
                             <div class="p30" id="phoneSection">
                                 <form method="post" action="{{ route('register') }}" id="#">
                                     @csrf
@@ -74,9 +73,14 @@
                                             <input type="text"
                                                    id="number"
                                                    name="phone"
-                                                   class="sign-up-input form-control"
+                                                   class="sign-up-input form-control @error('phone') is-invalid @enderror"
                                                    required
-                                                   placeholder="+91********">
+                                                   placeholder="+88********">
+                                            @error('phone')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                         <div id="recaptcha-container"></div>
                                     </div>
@@ -106,7 +110,7 @@
 
                                     <button type="submit"
                                     class="button button-md bg-dark2 color-white theme-background"
-                                    style="width: 100%" id="signUpButton">Sign Up</button>
+                                    style="width: 100%" {{--id="signUpButton"--}}>Sign Up</button>
 
                                 </form>
                                 <div class="mt20 clearfix  text-center">

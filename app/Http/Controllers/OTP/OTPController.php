@@ -69,7 +69,6 @@ class OTPController extends Controller
             //  generating a 4 digit code
             $random_code = rand(1000, 9999);
             //  saving code in database
-
             $otp        = new OTP;
             $otp->phone = $request->phone;
             $otp->code  = $random_code;
@@ -105,60 +104,76 @@ class OTPController extends Controller
             'code' => 'required',
         ]);
 
-        try
-        {
-            // match and get code from database
-            $otp = OTP::where('code', '=', $request->code)
-                ->where('phone', '=', $request->phone)
-                ->orderBy('id', 'desc')
-                ->first();
-
-            if ($otp) {
-
-                // calculate minute passed since code stored
-                //   $minute_passed = minuteCalculate($otp->created_at,date('Y-m-d H:i:s'));
-
-                //   $time_out_minute = 5;
-
-                // if time expired redirect user to the back
-
-                //   if ($minute_passed > $time_out_minute)
-                //   {
-                //       Session::flash('error','the code has been expired try to resend code');
-                //       return redirect()->back();
-                //   }
-
-                // if not expired check user with phone number and login with phone
-
-                $user = User::where('phone', '=', $request->phone)->first();
-
-                if ($user) {
-                    Auth::loginUsingId($user->id);
-                    // delete otp code
-                    $otp->delete();
-                    // if user has product on cart send him to checkout else send him for update information
-
-                    if (Cart::instance('shopping')->total() > 0) {
-                        return redirect('checkout');
-                    } else {
-                        return redirect()->route('user.information');
-                    }
-
-                } else {
-
-                    Session::flash('error', 'User not found on database');
-                    return redirect()->back();
-                }
-
-            } else {
-                Session::flash('error', 'oops! Invalid Code');
+        try {
+            if (Auth::check() && Auth::user()->code == $request->code){
+                Session::flash('success', "Registration Successfully done");
+                $user = Auth::user();
+                $user->code = null;
+                $user->login_active = 1;
+                $user->update();
+                return redirect("/");
+            }else{
+                Session::flash('error', 'otp not matched. try again!');
                 return redirect()->back();
             }
-
-        } catch (\Exception $e) {
+        }catch (\Exception $e){
             Session::flash('error', 'something went wrong!');
             return redirect()->back();
         }
+//        try
+//        {
+//            // match and get code from database
+//            $otp = OTP::where('code', '=', $request->code)
+//                ->where('phone', '=', $request->phone)
+//                ->orderBy('id', 'desc')
+//                ->first();
+//
+//            if ($otp) {
+//
+//                // calculate minute passed since code stored
+//                //   $minute_passed = minuteCalculate($otp->created_at,date('Y-m-d H:i:s'));
+//
+//                //   $time_out_minute = 5;
+//
+//                // if time expired redirect user to the back
+//
+//                //   if ($minute_passed > $time_out_minute)
+//                //   {
+//                //       Session::flash('error','the code has been expired try to resend code');
+//                //       return redirect()->back();
+//                //   }
+//
+//                // if not expired check user with phone number and login with phone
+//
+//                $user = User::where('phone', '=', $request->phone)->first();
+//
+//                if ($user) {
+//                    Auth::loginUsingId($user->id);
+//                    // delete otp code
+//                    $otp->delete();
+//                    // if user has product on cart send him to checkout else send him for update information
+//
+//                    if (Cart::instance('shopping')->total() > 0) {
+//                        return redirect('checkout');
+//                    } else {
+//                        return redirect()->route('user.information');
+//                    }
+//
+//                } else {
+//
+//                    Session::flash('error', 'User not found on database');
+//                    return redirect()->back();
+//                }
+//
+//            } else {
+//                Session::flash('error', 'oops! Invalid Code');
+//                return redirect()->back();
+//            }
+//
+//        } catch (\Exception $e) {
+//            Session::flash('error', 'something went wrong!');
+//            return redirect()->back();
+//        }
     }
 
     /**
@@ -170,6 +185,19 @@ class OTPController extends Controller
     public function show($id)
     {
         //
+    }
+
+    public function resend_otp_code($phone){
+        if ($phone != null){
+            $status = sendOtpUser($phone);
+            return $status;
+            Session::flash('success', "Successfully Message Send");
+            return back();
+        }else{
+            auth()->logout();
+            Session::flash('error', 'somting want wrong. try again');
+            return redirect('/');
+        }
     }
 
     /**

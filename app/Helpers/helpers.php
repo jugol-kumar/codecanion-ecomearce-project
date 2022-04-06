@@ -3,6 +3,7 @@ use App\AllStatic;
 use App\Model\Setting\DeliverySlotSetting;
 use App\Model\Setting\InstalltionSetting;
 use App\Model\Slider;
+use App\User;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 function generate_order_no()
@@ -324,3 +325,36 @@ function getPwaSplashName()
     return $all_image;
 
 }
+
+
+function sendBulkOtpSms($number, $text){
+    $data= array(
+        'username'=> config('bulkotp.bulk_user'),
+        'password'=> config('bulkotp.bulk_pass'),
+        'number'=>"88$number",
+        'message'=>"$text"
+    );
+
+    $ch = curl_init(); // Initialize cURL
+    curl_setopt($ch, CURLOPT_URL, config('bulkotp.bulk_url'));
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+    $smsresult = curl_exec($ch);
+    $p = explode("|",$smsresult);
+    $sendstatus = $p[0];
+
+    return $sendstatus;
+}
+
+function sendOtpUser($phone){
+    $code = rand(0000,9999);
+    $user = User::where('phone', $phone)->first();
+    $user->code = $code;
+    $user->update();
+    $text = "Your Login Otp Code Is ".$user->code." Sent By Me";
+    sendBulkOtpSms($phone, $text);
+}
+
+
+

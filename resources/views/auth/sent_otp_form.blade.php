@@ -47,7 +47,6 @@
                                     </div>
                                     <div id="recaptcha-container"></div>
                                     <button type="submit"
-                                            id="customerLogin"
                                             class="button button-md bg-dark2 color-white mb20 theme-background"
                                             style="width: 100%">{{ __('Login Here') }}</button>
                                 </form>
@@ -73,9 +72,6 @@
                                     @endforeach
                                 </div>
                             </div>
-
-
-
 
                             {{--  this is section for verify code section --}}
                             <div class="p30 d-none" id="codeSection">
