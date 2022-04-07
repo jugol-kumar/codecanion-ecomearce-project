@@ -21,7 +21,6 @@ class OtpCheckMiddleware
             if (Auth::check() && Auth::user()->code != null && Auth::user()->login_active == 0){
                 return redirect()->route('otp.form', session('phone-number'));
             }else{
-
                 return $next($request);
 //                Session::flash('error', "please login or registration First");
 //                return redirect('/');

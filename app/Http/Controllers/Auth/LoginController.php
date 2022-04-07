@@ -72,7 +72,6 @@ class LoginController extends Controller
                 Auth::login($user);
                 return redirect()->intended('profile');
             } else {
-
                 $user = User::create([
                     'name' => $userSocial->getName(),
                     'email' => $userSocial->getEmail(),
@@ -81,7 +80,6 @@ class LoginController extends Controller
                 // return redirect($this->redirectTo);
                 return redirect()->intended('profile');
             }
-
         } catch (\Exception $e) {
             Session::flash('error','Something went wrong!');
             return redirect()->back();
@@ -97,11 +95,22 @@ class LoginController extends Controller
     {
         $this->validateLogin($request);
 
+        if (!session('phone-number')){
+            session(['phone-number' =>$request->number]);
+        }
+
         $user = User::where("phone", $request->number)->first();
         if ($user){
             auth()->login($user);
-            Session::flash("success", "Successfully Login !!!");
-            return redirect()->to('/');
+            if ($user->phone){
+                sendOtpUser($user->phone);
+                return redirect(route('otp.form', session('phone-number')));
+            }else{
+                Session::flash("error", "Something want wrong . please try again");
+                return redirect()->to('/');
+            }
+//            Session::flash("success", "Successfully Login !!!");
+//            return redirect()->to('/');
         }else{
             Session::flash("error", "Credentials Not Match With Our Record");
             return redirect()->to('/');

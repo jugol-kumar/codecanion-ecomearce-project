@@ -106,7 +106,8 @@ class OTPController extends Controller
 
         try {
             if (Auth::check() && Auth::user()->code == $request->code){
-                Session::flash('success', "Registration Successfully done");
+
+                Session::flash('success', "Successfully Logging");
                 $user = Auth::user();
                 $user->code = null;
                 $user->login_active = 1;

@@ -225,6 +225,11 @@ class UserController extends Controller
 
     public function logout()
     {
+        $user = Auth::user();
+        $user->code = null;
+        $user->login_active = 0;
+        $user->update();
+
         Auth::logout();
         Session::flash('success', 'You are Logout!');
         return redirect()->to('/');
