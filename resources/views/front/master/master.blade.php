@@ -36,13 +36,6 @@
         .my-radio {
             display: none;
         }
-        .margin_left_250{
-            margin-left: 220px !important;
-        }
-        .margin_left_0{
-            margin-left: 0 !important;
-        }
-
 
 
     </style>
@@ -250,7 +243,8 @@
 
 
 
-        @include('front.include.footer')
+{{--        @include('front.include.footer')--}}
+        @include('front.include.new_footer')
         </div>
     </div>
 
@@ -311,26 +305,26 @@
          theme_color="{{ $shop_info->theme_color }}"
     >
     </div>
-{{--    <script>--}}
-{{--        window.fbAsyncInit = function () {--}}
-{{--            FB.init({--}}
-{{--                appId: '173637076534990',--}}
-{{--                autoLogAppEvents: true,--}}
-{{--                xfbml: true,--}}
-{{--                version: 'v2.11'--}}
-{{--            });--}}
-{{--        };--}}
-{{--        (function (d, s, id) {--}}
-{{--            var js, fjs = d.getElementsByTagName(s)[0];--}}
-{{--            if (d.getElementById(id)) {--}}
-{{--                return;--}}
-{{--            }--}}
-{{--            js = d.createElement(s);--}}
-{{--            js.id = id;--}}
-{{--            js.src = "https://connect.facebook.net/he_EN/sdk/xfbml.customerchat.js";--}}
-{{--            fjs.parentNode.insertBefore(js, fjs);--}}
-{{--        }(document, 'script', 'facebook-jssdk'));--}}
-{{--    </script>--}}
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '173637076534990',
+                autoLogAppEvents: true,
+                xfbml: true,
+                version: 'v2.11'
+            });
+        };
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://connect.facebook.net/he_EN/sdk/xfbml.customerchat.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
 @endif
 
 <script type="text/javascript">
@@ -536,6 +530,9 @@
     function loadGoogleTranslate(){
         new google.translate.TranslateElement("google_element")
     }
+    console.log($("#google_element"));
+
+
 </script>
 
 

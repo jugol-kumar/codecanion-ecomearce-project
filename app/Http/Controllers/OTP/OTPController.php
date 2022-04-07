@@ -191,9 +191,13 @@ class OTPController extends Controller
     public function resend_otp_code($phone){
         if ($phone != null){
             $status = sendOtpUser($phone);
-            return $status;
-            Session::flash('success', "Successfully Message Send");
-            return back();
+            if ($status == 1101){
+                Session::flash('success', "Successfully Message Send");
+                return back();
+            }else{
+                Session::flash('error', 'somting want wrong. try again');
+                return redirect('/');
+            }
         }else{
             auth()->logout();
             Session::flash('error', 'somting want wrong. try again');

@@ -352,8 +352,9 @@ function sendOtpUser($phone){
     $user = User::where('phone', $phone)->first();
     $user->code = $code;
     $user->update();
-    $text = "Your Login Otp Code Is ".$user->code." Sent By Me";
-    sendBulkOtpSms($phone, $text);
+    $text = "Your Login Otp Code Is ".$user->code." Sent By ".config('app.name');
+    $status = sendBulkOtpSms($phone, $text);
+    return $status;
 }
 
 

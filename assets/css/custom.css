@@ -893,7 +893,7 @@ color: white;
     font-size: 15px;
 }
 .payment-delivery {
-    background: #e7e5e7;
+    background: #f3f3f3;
     padding: 0 7px;
 }
 
@@ -913,6 +913,84 @@ color: white;
 }
 /*bottom pay with us section*/
 
+/*new footer design like chaldal*/
+.main_footer_area .footer_about {
+    font-size: 15px;
+    line-height: 19px;
+    text-align: justify;
+    color: #615e58;
+}
+
+.main_footer_area .footer_bottom{
+    margin-top: 50px;
+}
+.main_footer_area .footer_bottom_row{
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.main_footer_area .footer_bottom_row .footer-menu h4 {
+    border-bottom: 1px solid #e7e7e7;
+    padding-bottom: 10px;
+    width: 118%;
+    font-weight: 500;
+    color: #615e58;
+}
+.main_footer_area .footer_bottom_row .footer-menu ul li{
+    line-height: 25px;
+}
+.main_footer_area .footer_bottom_row .footer-menu ul li a{
+    font-size: 15px;
+    color: #615e58;
+}
+.main_footer_area .footer_bottom_row .footer-menu ul li a:hover{
+    color: #615e58;
+}
+
+.app_icon {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 25px;
+}
+.main_footer_area .app_icon img{
+    max-height: 45px;
+}
+.main_footer_area .number_or_mail{
+    text-align: right;
+    font-size: 25px;
+    color: #615e58;
+    font-weight: 700;
+}
+.main_footer_area .number_or_mail span{
+    font-weight: 100 !important;
+    margin-right: 5px;
+    color: #b3b3b3ad;
+    font-size: 14px;
+}
+.main_footer_area .socal_icon ul{
+    display: flex;
+    margin-top: 25px;
+    float: right;
+}
+.main_footer_area .socal_icon ul li img{
+    max-height: 45px;
+}
+.main_footer_area .footer_border_right{
+    border-right: 1px solid #e7e7e7;
+}
+footer{
+    background-color: #f7f7f7;
+}
+/*new footer design like chaldal*/
+
+.margin_left_250{
+    margin-left: 220px !important;
+}
+.margin_left_0{
+    margin-left: 0 !important;
+}
+
+
 @media (min-width: 300px) {
     #businessApp{
         margin-top: 7rem !important;
@@ -920,7 +998,9 @@ color: white;
     #businessApp .app-buttons {
         display: flex;
     }
-
+    /*#content {*/
+    /*    margin-left: 0px !important;*/
+    /*}*/
 /*    find more button*/
     .sm_mb_5_findmore{
         margin-bottom: 3rem !important;

@@ -51,7 +51,7 @@
 
                                 </form>
                                 <form method="get" action="{{ route('resend.otp', $phone) }}" >
-                                	@csrf
+{{--                                	@csrf--}}
                                     <input type="hidden" name="phone" value="{{ $phone }}">
                                 	<button type="submit" class="btn btn-link text-center">Din't get code ? Click here to Resend Code</button>
                                 </form>
