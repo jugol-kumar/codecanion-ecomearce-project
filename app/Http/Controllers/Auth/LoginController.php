@@ -77,7 +77,6 @@ class LoginController extends Controller
                     'email' => $userSocial->getEmail(),
                 ]);
                 Auth::login($user);
-                // return redirect($this->redirectTo);
                 return redirect()->intended('profile');
             }
         } catch (\Exception $e) {
@@ -93,7 +92,9 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        $this->validateLogin($request);
+        $request->validate([
+            'number' => 'required|min:11'
+        ]);
 
         if (!session('phone-number')){
             session(['phone-number' =>$request->number]);
@@ -109,16 +110,10 @@ class LoginController extends Controller
                 Session::flash("error", "Something want wrong . please try again");
                 return redirect()->to('/');
             }
-//            Session::flash("success", "Successfully Login !!!");
-//            return redirect()->to('/');
         }else{
             Session::flash("error", "Credentials Not Match With Our Record");
             return redirect()->to('/');
         }
-
-//        if (auth()->attempt(['phone'=> $request->number])){
-//            return redirect()->to('/');
-//        }
     }
 
 
