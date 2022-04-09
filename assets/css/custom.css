@@ -331,9 +331,9 @@ color: white;
     background: #ff686e;
     float: right;
     color: white;
-    padding: 17px 37px;
+    padding: 18px 0px;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 13px;
     position: absolute;
     right: 0;
     overflow: hidden;
@@ -383,7 +383,6 @@ color: white;
     font-size: 14px;
     padding: 17px 8px;
     border-left: 1px solid #dfb547 !important;
-    border-right: 1px solid #dfb547 !important;
     color: #615e58 !important;
     max-height: 55px;
 }
@@ -413,6 +412,7 @@ color: white;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-right: 1px solid #dfb547 !important;
 }
 
 
@@ -439,11 +439,38 @@ color: white;
     border: none;
     background: none;
     width: 80px;
+    position: relative;
+    top: 7px;
 }
-
 .goog-te-gadget .goog-te-combo:focus-visible{
     outline: none;
 }
+
+.google-translate {
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 15px;
+}
+
+.goog-logo-link {
+    display: none !important;
+}
+
+.goog-te-gadget {
+    color: transparent !important;
+}
+
+#google_translate_element {
+    display: none;
+}
+
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+}
+
+
+
+
 /*.skiptranslate{*/
 /*    display: none;*/
 /*}*/
@@ -1004,5 +1031,137 @@ footer{
 /*    find more button*/
     .sm_mb_5_findmore{
         margin-bottom: 3rem !important;
+    }
+}
+@media only screen and (max-width: 769px){
+    #content {
+        margin-left: 0px !important;
+    }
+    .user-menu:hover .dropdown-menu1 {
+        display: block;
+        position: absolute;
+        top: 83%;
+        left: -42px;
+        right: 0;
+    }
+    .carousel {
+        min-height: 210px;
+    }
+    .category .box .content h3{
+        font-size: 13px;
+    }
+}
+@media (max-width: 992px) and (min-width: 576px){
+    .sm_display{
+        display: none !important;
+    }
+    .mid_display{
+        display: block !important;
+    }
+    .profile-button{
+        right: -33%;
+    }
+    #customerCounter .app-left-section img {
+        max-height: 230px;
+    }
+    #customerCounter .counter-content p {
+        font-size: 22px;
+        line-height: 31px;
+    }
+    #businessApp .app-left-section{
+        display:block;
+    }
+    #businessApp img {
+        float: right;
+        max-width: 150px !important;
+    }
+    #businessApp .form-group .getapp-button {
+        background: #ff686e;
+        color: white;
+        border-radius: 0px 5px 5px 0px;
+        font-size: 14px;
+        padding: 4px 30px;
+        width: 100%;
+    }
+    .payment-delivery .display_sm_style{
+        flex-direction: column;
+        align-content: center;
+
+    }
+    .payment-delivery .display_sm_style .left-side-content{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 576px) {
+    #businessApp .form-group .getapp-button {
+        padding: 15px 24px;
+        font-size: 14px;
+    }
+    .message{
+        margin-top: 50px;
+    }
+    .app-left-section{
+        display: flex;
+    }
+    #customerCounter .app-left-section img {
+        max-height: 250px;
+        margin: auto;
+    }
+    #customerCounter .counter-content p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        font-size: 26px;
+        font-weight: bold;
+        line-height: 35px;
+        color: white;
+    }
+}
+@media only screen and (min-width: 320px) and (max-width: 767px){
+    .profile-button{
+        background: none !important;
+        padding: 6px 45px;
+        right: 0%;
+    }
+}
+@media (max-width: 992px) and (min-width: 320px){
+
+    .main_footer_area .number_or_mail{
+        text-align: center;
+    }
+    .main_footer_area .socal_icon ul {
+        margin-top: 25px;
+        text-align: center;
+        display: block;
+        float: none;
+    }
+    .main_footer_area .socal_icon ul li{
+        display: inline;
+    }
+    .left-side-content {
+        flex-direction: column;
+    }
+    .main_footer_area .footer_border_right {
+        text-align: center;
+        border-right: none;
+    }
+    .main_footer_area .footer_about {
+        font-size: 12px;
+        padding: 0px 20px;
+    }
+    .main_footer_area .footer_bottom_row .footer-menu h4{
+        width: 100%;
+    }
+    .sm-margin-right{
+        margin-right: 0;
+    }
+}
+@media (max-width: 320px) {
+    .profile-button{
+        background: none !important;
     }
 }

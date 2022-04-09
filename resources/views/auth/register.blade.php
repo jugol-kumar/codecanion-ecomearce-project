@@ -54,20 +54,20 @@
                                         @enderror
                                         <p class="ptsan-regular"></p>
                                     </div>
-                                    <div class="form-group">
-                                        <input class="sign-up-input form-control @error('email') is-invalid @enderror"
-                                         name="email"
-                                               id="email"
-                                          type="text"
-                                           placeholder="Email"
-                                            value="{{ old('email') }}" required autocomplete="email">
-                                        @error('email')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                        <p class="ptsan-regular"></p>
-                                    </div>
+{{--                                    <div class="form-group">--}}
+{{--                                        <input class="sign-up-input form-control @error('email') is-invalid @enderror"--}}
+{{--                                         name="email"--}}
+{{--                                               id="email"--}}
+{{--                                          type="text"--}}
+{{--                                           placeholder="Email"--}}
+{{--                                            value="{{ old('email') }}" required autocomplete="email">--}}
+{{--                                        @error('email')--}}
+{{--                                            <span class="invalid-feedback" role="alert">--}}
+{{--                                                <strong>{{ $message }}</strong>--}}
+{{--                                            </span>--}}
+{{--                                        @enderror--}}
+{{--                                        <p class="ptsan-regular"></p>--}}
+{{--                                    </div>--}}
                                     <div class="form-group">
                                         <div class="form-group">
                                             <input type="text"

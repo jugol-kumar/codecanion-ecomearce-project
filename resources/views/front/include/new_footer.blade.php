@@ -1,7 +1,7 @@
 <footer>
     <div class="container pl-0 pr-0 pb50 mb20">
         <div class="row main_footer_area">
-            <div class="col-md-8 footer_border_right">
+            <div class="col-lg-8 col-md-12 footer_border_right">
                 <div class="footer_top">
                     <div class="logo">
                         <a href="{{ url('/') }}"><img src="{{ asset('images/logo/'.$shop_info->logo_footer) }}" alt="logo" class="img-fluid"></a>
@@ -10,7 +10,7 @@
                 </div>
                 <div class="footer_bottom">
                     <div class="row footer_bottom_row">
-                        <div class="col-lg-3 col-sm-6 xs-mb30 mr40">
+                        <div class="col-lg-3 col-sm-6 xs-mb30 mr40 sm-margin-right">
                             <div class="footer-menu">
                                 <h4>Individual user</h4>
                                 <ul>
@@ -27,7 +27,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-sm-6 xs-mb30 mr40">
+                        <div class="col-lg-3 col-sm-6 xs-mb30 mr40 sm-margin-right">
                             <div class="footer-menu">
                                 <h4>Individual user</h4>
                                 <ul>
@@ -44,7 +44,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-sm-6 xs-mb30 mr40">
+                        <div class="col-lg-3 col-sm-6 xs-mb30 mr40 sm-margin-right">
                             <div class="footer-menu contact-info">
                                 <h4>For Business</h4>
                                 <ul>
@@ -55,7 +55,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4 col-md-12">
                 <div class="app_icon">
                     <img src="https://chaldn.com/asset/Egg.Grocery.Fabric/Egg.Grocery.Web/1.5.0+DataCenter-Release-2996/Default/components/shared/NewFooter/images/google_play_store.png?q=low&webp=1&alpha=1" alt="">
                     <img src="https://chaldn.com/asset/Egg.Grocery.Fabric/Egg.Grocery.Web/1.5.0+DataCenter-Release-2996/Default/components/shared/NewFooter/images/app_store.png?q=low&webp=1&alpha=1" alt="">

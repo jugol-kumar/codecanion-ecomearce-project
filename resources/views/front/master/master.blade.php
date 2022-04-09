@@ -32,7 +32,6 @@
         .active_color > a {
             color: {{ $shop_info->theme_color }} ;
         }
-
         .my-radio {
             display: none;
         }
@@ -82,7 +81,6 @@
         }else{
             $isActive = false;
         }
-
     @endphp
 
 
@@ -107,9 +105,9 @@
                     </div>
                 </div>
                 <!-- for mobile  -->
-                <div class="d-sm-none d-md-none d-lg-none col col-lg-3 col-sm-3 text-center">
+                <div class="sm_display d-lg-none d-md-non col col-lg-3 col-sm-3 text-center">
                     <div class="user-menu">
-                        <a href="#">
+                        <a href="#" class="profile-button">
                             <i class="lni lni-user" style="font-size: 20px"></i>
                         </a>
                         <ul class="dropdown-menu1">
@@ -126,13 +124,36 @@
                         </ul>
                     </div>
                 </div>
-
                 <!-- end mobile profile  -->
                 <div class="col-12 col-lg-6 col-sm-6">
                     <search-box></search-box>
                 </div>
 
-                <div class="d-none d-sm-block col pl-0">
+                <!-- for mobile  -->
+                <div class="mid_display d-none  d-lg-none col col-lg-3 col-sm-3 text-center">
+                    <div class="user-menu">
+                        <a href="#" class="profile-button">
+                            <i class="lni lni-user" style="font-size: 20px"></i>
+                        </a>
+                        <ul class="dropdown-menu1">
+                            @auth
+                                <li><a href="{{ route('user.profile') }}"><span>Profile</span></a></li>
+                                <li><a href="{{ route('user.order') }}"><span>My Orders</span></a></li>
+                                <li><a href="{{ route('user.logout') }}"><span>Logout</span></a></li>
+                            @endauth
+                            @guest
+                                <li><a href="{{ route('login') }}"><span>Sign in</span></a></li>
+                                <li><a href="{{ route('register') }}"><span>Sign up</span></a></li>
+                            @endguest
+                            <li><a href="{{ route('order.track') }}">Track Order</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- end mobile profile  -->
+
+
+
+                <div class="d-none d-lg-block col pl-0">
                     <div class="user-menu">
                         <div class="other-buttons">
                             <a href="" class="other-button-hover">
@@ -210,7 +231,7 @@
 
         <!--pay us with-->
         <div class="payment-delivery">
-            <div class="row mr-0">
+            <div class="row mr-0 display_sm_style">
                 <div class="col-md-6">
                     <div class="left-side-content">
                         <div class="single">
@@ -288,9 +309,7 @@
         $('.message').slideDown("slow").delay(4500).slideUp("slow");
         @endif
         @endforeach
-
         // $('.sidebar').addClass('active');
-
     })
 </script>
 <!-- coming from app/helpers/helper  -->
@@ -528,7 +547,12 @@
 <script src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
 <script>
     function loadGoogleTranslate(){
-        new google.translate.TranslateElement("google_element")
+        new google.translate.TranslateElement(
+            {
+                // pageLanguage: 'en',
+                includedLanguages: 'bn,en',
+            },
+            "google_element")
     }
     console.log($("#google_element"));
 

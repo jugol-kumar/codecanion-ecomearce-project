@@ -144,7 +144,7 @@
 {{--   add section for mobile app--}}
     <div class="container-fluid mt-sm-5 mt-sm-5" id="businessApp">
         <div class="row">
-            <div class="col-md-6 app-left-section">
+            <div class="col-sm-6 app-left-section">
                 <p>Be a part of our family</p>
                 <div class="form-section">
                     <div class="form-group">
@@ -160,7 +160,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-sm-6">
                 <img src="{{ asset("assets/image/appimage.png") }}" alt="">
             </div>
         </div>
@@ -174,10 +174,10 @@
     {{--    all customer counter section--}}
     <div class="container-fluid" id="customerCounter">
         <div class="row">
-            <div class="col-md-6 app-left-section">
+            <div class="col-sm-6 app-left-section">
                 <img src="{{ asset('images/citymap.webp') }}" alt="">
             </div>
-            <div class="col-md-6 float-right">
+            <div class="col-sm-6 float-right">
                 <div class="counter-content">
                     <p>
                         <span>Dhaka</span>
