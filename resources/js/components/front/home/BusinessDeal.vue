@@ -10,19 +10,19 @@
                     </div>
                     <div class="middlesection">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-lg-4">
                                 <div class="card single-card">
                                     <i class="lni lni-invest-monitor"></i>
                                     <p>Special Corporate Prices </p>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-lg-4">
                                 <div class="card single-card">
                                     <i class="lni lni-phone"></i>
                                     <p>24 Hour Support</p>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-lg-4">
                                 <div class="card single-card">
                                     <i class="lni lni-delivery"></i>
                                     <p>Flexible Delivery</p>

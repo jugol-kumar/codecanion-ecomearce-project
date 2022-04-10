@@ -85,28 +85,28 @@
                                         <div id="recaptcha-container"></div>
                                     </div>
 
-                                    <div class="form-group">
-                                        <input
-                                        class="sign-up-input form-control @error('password') is-invalid @enderror"
-                                        name="password" id="password" type="password"
-                                        placeholder="Password"required autocomplete="new-password">
-                                        @error('password')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                        <p class="ptsan-regular"></p>
-                                    </div>
+{{--                                    <div class="form-group">--}}
+{{--                                        <input--}}
+{{--                                        class="sign-up-input form-control @error('password') is-invalid @enderror"--}}
+{{--                                        name="password" id="password" type="password"--}}
+{{--                                        placeholder="Password"required autocomplete="new-password">--}}
+{{--                                        @error('password')--}}
+{{--                                            <span class="invalid-feedback" role="alert">--}}
+{{--                                                <strong>{{ $message }}</strong>--}}
+{{--                                            </span>--}}
+{{--                                        @enderror--}}
+{{--                                        <p class="ptsan-regular"></p>--}}
+{{--                                    </div>--}}
 
-                                    <div class="form-group">
+{{--                                    <div class="form-group">--}}
 
-                                        <input id="password-confirm"
-                                         type="password"
-                                         class="sign-up-input form-control"
-                                         placeholder="Confirm Password"
-                                          name="password_confirmation" required autocomplete="new-password">
-                                        <p class="ptsan-regular"></p>
-                                    </div>
+{{--                                        <input id="password-confirm"--}}
+{{--                                         type="password"--}}
+{{--                                         class="sign-up-input form-control"--}}
+{{--                                         placeholder="Confirm Password"--}}
+{{--                                          name="password_confirmation" required autocomplete="new-password">--}}
+{{--                                        <p class="ptsan-regular"></p>--}}
+{{--                                    </div>--}}
 
                                     <button type="submit"
                                     class="button button-md bg-dark2 color-white theme-background"

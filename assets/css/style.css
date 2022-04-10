@@ -171,9 +171,9 @@ header
     margin: 0 auto;
 }
 
-.user-menu:hover .dropdown-menu1 {
-    display: block;
-}
+/*.user-menu:hover .dropdown-menu1 {*/
+/*    display: block;*/
+/*}*/
 
 .user-menu .dropdown-menu1 li a span {
     color: #000;

@@ -1,5 +1,5 @@
 <footer>
-    <div class="container pl-0 pr-0 pb50 mb20">
+    <div class="container pl-0 pb50 mb20">
         <div class="row main_footer_area">
             <div class="col-lg-8 col-md-12 footer_border_right">
                 <div class="footer_top">

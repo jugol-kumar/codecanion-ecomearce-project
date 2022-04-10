@@ -874,7 +874,8 @@ color: white;
     position: absolute;
     right: 0%;
 }
-.user-menu:hover .dropdown-menu1 {
+
+.profile-hover:hover .dropdown-menu1{
     display: block;
     position: absolute;
     right: -69%;
@@ -1093,6 +1094,16 @@ footer{
         align-items: center;
         flex-direction: column;
     }
+    .right-side-content{
+        float: none;
+        text-align: center;
+    }
+    .right-side-content ul{
+        display: block;
+    }
+    .right-side-content ul li{
+        display: inline;
+    }
 }
 
 @media (max-width: 576px) {
@@ -1165,3 +1176,4 @@ footer{
         background: none !important;
     }
 }
+

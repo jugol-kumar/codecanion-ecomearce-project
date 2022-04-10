@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html dir="ltr" lang="en-us">
 
 <head>
     @include('front.include.header_asset')
+    <meta name="google-translate-customization" content="e6d13f48b4352bb5-f08d3373b31c17a6-g7407ad622769509b-12"></meta>
 
     @stack('style')
 
@@ -167,7 +168,7 @@
                                 <svg style="fill:#615e58;stroke:#615e58;display:inline-block;vertical-align:middle;" width="20px" height="16px" fill="none" viewBox="0 0 44 60" data-reactid=".w2yjcx1yko.4.0.0.0.5.0.0"><path d="M26.63 44.999H15.378c-.5 0-.937.188-1.312.563-.376.375-.563.812-.563 1.312v11.251c0 .5.188.938.563 1.313.375.374.812.562 1.312.562h11.25c.5 0 .938-.188 1.312-.563.376-.374.564-.812.564-1.312v-11.25c0-.5-.188-.938-.564-1.313-.373-.376-.812-.563-1.312-.563zM41.396 11.32c-1.282-2.36-2.937-4.351-4.97-5.977-2.03-1.624-4.312-2.922-6.843-3.89C27.052.485 24.536 0 22.036 0c-9.5 0-16.75 4.156-21.75 12.47a1.85 1.85 0 00-.258 1.311c.078.469.32.86.727 1.172l7.687 5.86c.407.25.797.374 1.173.374.562 0 1.046-.25 1.453-.75 2.25-2.812 3.922-4.609 5.015-5.39 1.344-.907 3.031-1.36 5.063-1.36 1.906 0 3.585.5 5.039 1.5 1.453 1 2.179 2.156 2.179 3.469 0 1.468-.39 2.656-1.172 3.563-.78.905-2.094 1.78-3.938 2.624-2.437 1.094-4.672 2.79-6.702 5.086-2.032 2.297-3.047 4.743-3.047 7.336v2.11c0 .594.163 1.18.492 1.758.328.578.726.867 1.195.867h11.25c.5 0 .938-.242 1.313-.728.374-.483.562-.99.562-1.521 0-.781.43-1.83 1.289-3.14.86-1.313 1.93-2.33 3.212-3.049a95.29 95.29 0 002.858-1.664c.689-.421 1.587-1.102 2.697-2.039 1.109-.938 1.968-1.868 2.577-2.79.61-.92 1.157-2.116 1.641-3.586.485-1.468.727-3.047.727-4.734 0-2.594-.641-5.07-1.922-7.428z" data-reactid=".w2yjcx1yko.4.0.0.0.5.0.0.0"></path></svg>
                                 <span>Help</span>
                             </a>
-                            <span id="google_element"></span>
+                            <span id="google_element" onchange="foo()"></span>
                         </div>
                         @guest
                             <a href="{{ route('login') }}">
@@ -176,13 +177,15 @@
                         @endguest
 
                         @auth
-                            <a href="#" class="profile-button">
-                                <i class="lni lni-user" style="font-size: 20px"></i>
-                            </a>
-                            <ul class="dropdown-menu1">
-                                <li><a href="{{ route('user.profile') }}"><span>Profile</span></a></li>
-                                <li><a href="{{ route('user.logout') }}"><span>Logout</span></a></li>
-                            </ul>
+                            <div class="profile-hover">
+                                <a href="#" class="profile-button">
+                                    <i class="lni lni-user" style="font-size: 20px"></i>
+                                </a>
+                                <ul class="dropdown-menu1">
+                                    <li><a href="{{ route('user.profile') }}"><span>Profile</span></a></li>
+                                    <li><a href="{{ route('user.logout') }}"><span>Logout</span></a></li>
+                                </ul>
+                            </div>
                         @endauth
 
                     </div>
@@ -259,7 +262,13 @@
         </div>
         <!--pay us with-->
 
-
+            <select id="custom-translate" style="display:none;">
+                <option value="">Select Language</option>
+                <option value="af">Afrikaans</option>
+                <option value="sq">Albanian</option>
+                <option value="am">Amharic</option>
+                <option value="ar">Arabic (العربية)</option>
+            </select>
 
 
 
@@ -542,28 +551,20 @@
         });
     }
 </script>
-
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
 <script>
+
     function loadGoogleTranslate(){
         new google.translate.TranslateElement(
-            {
-                // pageLanguage: 'en',
-                includedLanguages: 'bn,en',
-            },
-            "google_element")
+        {
+            pageLanguage: 'en',
+            includedLanguages: 'en,bn',
+        },
+        "google_element");
     }
-    console.log($("#google_element"));
-
 
 </script>
-
-
-
-
-
-
 
 </body>
 
