@@ -352,7 +352,7 @@ function sendOtpUser($phone){
     $user = User::where('phone', $phone)->first();
     $user->code = $code;
     $user->update();
-    $text = "Your Login Otp Code Is ".$user->code." Sent By ".config('app.name');
+    $text = "Your chaldal.ctpbd.com OTP code is ".$code;
     $status = sendBulkOtpSms($phone, $text);
     return $status;
 }
