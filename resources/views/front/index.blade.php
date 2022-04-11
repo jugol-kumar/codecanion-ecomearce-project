@@ -118,7 +118,9 @@
     <!--  end category-->
 
 {{--    how to order slider--}}
+    @if($shop_info->how_to_order_status == 1)
     <home-order-slider></home-order-slider>
+    @endif
 {{--    how to order slider--}}
 
 
@@ -134,14 +136,19 @@
 
 
 {{--    why people chose us section--}}
+    @if($shop_info->why_people_love	== 1)
     <people-love></people-love>
+    @endif
 {{--    why people chose us section--}}
 
 {{--   business deal area--}}
+    @if($shop_info->business_section == 1)
     <buisness-deal></buisness-deal>
+    @endif
 {{--   business deal area--}}
 
 {{--   add section for mobile app--}}
+    @if($shop_info->mobile_app_section == 1)
     <div class="container-fluid mt-sm-5 mt-sm-5" id="businessApp">
         <div class="row">
             <div class="col-sm-6 app-left-section">
@@ -165,6 +172,7 @@
             </div>
         </div>
     </div>
+    @endif
 {{--   add section for mobile app--}}
 
 
@@ -172,6 +180,7 @@
 
 
     {{--    all customer counter section--}}
+    @if($shop_info->report_counter == 1)
     <div class="container-fluid" id="customerCounter">
         <div class="row">
             <div class="col-sm-6 app-left-section">
@@ -192,6 +201,7 @@
             </div>
         </div>
     </div>
+    @endif
     {{--    all customer counter section--}}
 
 

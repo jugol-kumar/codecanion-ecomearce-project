@@ -75,7 +75,7 @@
                                                    name="phone"
                                                    class="sign-up-input form-control @error('phone') is-invalid @enderror"
                                                    required
-                                                   placeholder="+88********">
+                                                   placeholder="phone number">
                                             @error('phone')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>

@@ -69,42 +69,49 @@ class ShopSettingController extends Controller
             $shop->slider_status       =  $request->slider_status;
             $shop->onsale_status       =  $request->onsale_status;
             $shop->sidemenu_status     =  $request->sidemenu_status;
+
+            $shop->how_to_order_status =  $request->how_to_order_status;
+            $shop->why_people_love     =  $request->why_people_love;
+            $shop->business_section    =  $request->business_section;
+            $shop->mobile_app_section  =  $request->mobile_app_section;
+            $shop->report_counter      =  $request->report_counter;
+
             $header_logo               =  $request->get('header_logo');
             $footer_logo               =  $request->get('footer_logo');
             $favicon                   =  $request->get('favicon');
-            if ($header_logo) 
+            if ($header_logo)
             {
             if (file_exists('images/logo/'.$shop->logo_header) && !empty($shop->logo_header))
             {
                 unlink('images/logo/'.$shop->logo_header);
-            }   
-            
+            }
+
             $fileName = uniqid().'.'.explode('/', explode(':', substr($header_logo, 0, strpos($header_logo, ';')))[1])[1];
             Image::make($request->get('header_logo'))->save('images/logo/'.$fileName);
             $shop->logo_header =  $fileName;
 
-            }            
+            }
 
-            if ($footer_logo) 
+            if ($footer_logo)
             {
             if (file_exists('images/logo/'.$shop->logo_footer) && !empty($shop->logo_footer))
             {
                 unlink('images/logo/'.$shop->logo_footer);
-            }   
-            
+            }
+
             $fileName = uniqid().'.'.explode('/', explode(':', substr($footer_logo, 0, strpos($footer_logo, ';')))[1])[1];
             Image::make($request->get('footer_logo'))->save('images/logo/'.$fileName);
             $shop->logo_footer =  $fileName;
 
-            }            
+            }
 
-            if ($favicon) 
+            if ($favicon)
             {
             if (file_exists('images/logo/'.$shop->favicon) && !empty($shop->favicon))
             {
                 unlink('images/logo/'.$shop->favicon);
-            }   
-            
+            }
+
             $fileName = uniqid().'.'.explode('/', explode(':', substr($favicon, 0, strpos($favicon, ';')))[1])[1];
             Image::make($request->get('favicon'))->save('images/logo/'.$fileName);
             $shop->favicon =  $fileName;
@@ -112,8 +119,8 @@ class ShopSettingController extends Controller
             }
 
             $shop->update();
-            
-            // clear cache 
+
+            // clear cache
             cache()->forget('shop-info');
 
             return response()->json(['status' => 'success','message' => 'Shop Setting Updated']);

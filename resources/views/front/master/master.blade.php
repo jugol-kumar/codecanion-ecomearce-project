@@ -172,7 +172,7 @@
                         </div>
                         @guest
                             <a href="{{ route('login') }}">
-                                <button class="signin-button">Sign In Here</button>
+                                <button class="signin-button">Sign In / Sign up</button>
                             </a>
                         @endguest
 

@@ -38,7 +38,7 @@
                                 <form method="POST" action="{{ route('login') }}">
                                     @csrf
                                     <div class="form-group">
-                                        <input type="text" id="number" name="number" class="sign-up-input form-control @error('number') is-invalid @enderror" placeholder="+88******">
+                                        <input type="text" id="number" name="number" class="sign-up-input form-control @error('number') is-invalid @enderror" placeholder="phone number">
                                         <p class="ptsan-regular text-danger">
                                             @error('number')
                                             {{ $message }}

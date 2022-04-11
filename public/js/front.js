@@ -15963,7 +15963,7 @@ var render = function() {
         staticClass: "single-input",
         attrs: {
           name: "key",
-          placeholder: "Search for product...",
+          placeholder: "Search for products (e.g. eggs, milk, potato)",
           type: "text"
         },
         domProps: { value: _vm.keyword },

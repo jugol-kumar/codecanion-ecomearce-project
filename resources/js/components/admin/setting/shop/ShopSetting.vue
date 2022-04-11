@@ -176,6 +176,68 @@
           </select>
         </div>
 
+
+
+          <div class="form-group">
+              <label>Show Order Suggestion Slider (<small>you can on or off showing How To Order Slider by this
+                  option</small
+              >)</label
+              >
+
+              <select class="form-control" v-model="form.how_to_order_status">
+                  <option value="1">Show Suggestion Slider</option>
+                  <option value="0">Don't Show Suggestion Slider</option>
+              </select>
+          </div>
+
+          <div class="form-group">
+              <label>People Love Website (<small>you can on or off showing why people love this website section by this
+                  option</small
+              >)</label
+              >
+
+              <select class="form-control" v-model="form.why_people_love">
+                  <option value="1">Show People Love Section</option>
+                  <option value="0">Don't Show People Love Section</option>
+              </select>
+          </div>
+
+          <div class="form-group">
+              <label>Business (<small>you can on or off showing business section by this
+                  option</small
+              >)</label
+              >
+
+              <select class="form-control" v-model="form.business_section">
+                  <option value="1">Show Business Section</option>
+                  <option value="0">Don't Business Section</option>
+              </select>
+          </div>
+
+          <div class="form-group">
+              <label>Mobile App Section (<small>you can on or off showing mobile app section by this
+                  option</small
+              >)</label
+              >
+
+              <select class="form-control" v-model="form.mobile_app_section">
+                  <option value="1">Show Mobile App Section</option>
+                  <option value="0">Don't Show Mobile App Section</option>
+              </select>
+          </div>
+
+          <div class="form-group">
+              <label>Report Counter Sectoin (<small>you can on or off showing report counter section by this
+                  option</small
+              >)</label
+              >
+
+              <select class="form-control" v-model="form.report_counter">
+                  <option value="1">Show Report Counter</option>
+                  <option value="0">Don't Show Report Counter</option>
+              </select>
+          </div>
+
         <div style="margin-bottom: 20px">
           <button
             style="margin-bottom: 20px"
@@ -276,6 +338,11 @@ export default {
         slider_status: "",
         onsale_status: "",
         sidemenu_status: "",
+        how_to_order_status:"",
+        why_people_love:"",
+        business_section:"",
+        mobile_app_section:"",
+        report_counter:"",
       },
 
       isLoading: false,
@@ -362,6 +429,13 @@ export default {
           this.form.slider_status = response.data.slider_status;
           this.form.onsale_status = response.data.onsale_status;
           this.form.sidemenu_status = response.data.sidemenu_status;
+
+
+            this.form.how_to_order_status = response.data.how_to_order_status,
+            this.form.why_people_love = response.data.why_people_love,
+            this.form.business_section = response.data.business_section,
+            this.form.mobile_app_section = response.data.mobile_app_section,
+            this.form.report_counter = response.data.report_counter
         });
     },
 

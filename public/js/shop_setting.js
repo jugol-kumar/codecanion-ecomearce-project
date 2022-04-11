@@ -2560,6 +2560,68 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2587,7 +2649,12 @@ __webpack_require__.r(__webpack_exports__);
         hot_deal_status: "",
         slider_status: "",
         onsale_status: "",
-        sidemenu_status: ""
+        sidemenu_status: "",
+        how_to_order_status: "",
+        why_people_love: "",
+        business_section: "",
+        mobile_app_section: "",
+        report_counter: ""
       },
       isLoading: false,
       button_name: "update",
@@ -2673,6 +2740,7 @@ __webpack_require__.r(__webpack_exports__);
         _this2.form.slider_status = response.data.slider_status;
         _this2.form.onsale_status = response.data.onsale_status;
         _this2.form.sidemenu_status = response.data.sidemenu_status;
+        _this2.form.how_to_order_status = response.data.how_to_order_status, _this2.form.why_people_love = response.data.why_people_love, _this2.form.business_section = response.data.business_section, _this2.form.mobile_app_section = response.data.mobile_app_section, _this2.form.report_counter = response.data.report_counter;
       });
     },
     save: function save() {
@@ -21801,6 +21869,231 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _vm._m(8),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.how_to_order_status,
+                    expression: "form.how_to_order_status"
+                  }
+                ],
+                staticClass: "form-control",
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.form,
+                      "how_to_order_status",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  }
+                }
+              },
+              [
+                _c("option", { attrs: { value: "1" } }, [
+                  _vm._v("Show Suggestion Slider")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "0" } }, [
+                  _vm._v("Don't Show Suggestion Slider")
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _vm._m(9),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.why_people_love,
+                    expression: "form.why_people_love"
+                  }
+                ],
+                staticClass: "form-control",
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.form,
+                      "why_people_love",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  }
+                }
+              },
+              [
+                _c("option", { attrs: { value: "1" } }, [
+                  _vm._v("Show People Love Section")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "0" } }, [
+                  _vm._v("Don't Show People Love Section")
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _vm._m(10),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.business_section,
+                    expression: "form.business_section"
+                  }
+                ],
+                staticClass: "form-control",
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.form,
+                      "business_section",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  }
+                }
+              },
+              [
+                _c("option", { attrs: { value: "1" } }, [
+                  _vm._v("Show Business Section")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "0" } }, [
+                  _vm._v("Don't Business Section")
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _vm._m(11),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.mobile_app_section,
+                    expression: "form.mobile_app_section"
+                  }
+                ],
+                staticClass: "form-control",
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.form,
+                      "mobile_app_section",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  }
+                }
+              },
+              [
+                _c("option", { attrs: { value: "1" } }, [
+                  _vm._v("Show Mobile App Section")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "0" } }, [
+                  _vm._v("Don't Show Mobile App Section")
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _vm._m(12),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.report_counter,
+                    expression: "form.report_counter"
+                  }
+                ],
+                staticClass: "form-control",
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.form,
+                      "report_counter",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  }
+                }
+              },
+              [
+                _c("option", { attrs: { value: "1" } }, [
+                  _vm._v("Show Report Counter")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "0" } }, [
+                  _vm._v("Don't Show Report Counter")
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
           _c("div", { staticStyle: { "margin-bottom": "20px" } }, [
             _c(
               "button",
@@ -21989,6 +22282,76 @@ var staticRenderFns = [
       _c("small", [
         _vm._v(
           "you can on or off showing side menu by this\n            option"
+        )
+      ]),
+      _vm._v(")")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("Show Order Suggestion Slider ("),
+      _c("small", [
+        _vm._v(
+          "you can on or off showing How To Order Slider by this\n                option"
+        )
+      ]),
+      _vm._v(")")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("People Love Website ("),
+      _c("small", [
+        _vm._v(
+          "you can on or off showing why people love this website section by this\n                option"
+        )
+      ]),
+      _vm._v(")")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("Business ("),
+      _c("small", [
+        _vm._v(
+          "you can on or off showing business section by this\n                option"
+        )
+      ]),
+      _vm._v(")")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("Mobile App Section ("),
+      _c("small", [
+        _vm._v(
+          "you can on or off showing mobile app section by this\n                option"
+        )
+      ]),
+      _vm._v(")")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("Report Counter Sectoin ("),
+      _c("small", [
+        _vm._v(
+          "you can on or off showing report counter section by this\n                option"
         )
       ]),
       _vm._v(")")
