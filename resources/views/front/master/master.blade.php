@@ -69,10 +69,10 @@
             gtag('js', new Date());
             gtag('config', '{{ $google_analytics->app_id }}');
         </script>
-@endif
+    @endif
 <!-- google analytics  -->
 
-{{--    conditional margin left style --}}
+    {{--    conditional margin left style --}}
 
     @php
         if (request()->path() == "login" ||
@@ -171,9 +171,9 @@
                             <span id="google_element" onchange="foo()"></span>
                         </div>
                         @guest
-                            <a href="{{ route('login') }}">
-                                <button class="signin-button">Sign In / Sign up</button>
-                            </a>
+                            <div>
+                                <button class="signin-button"> <a  href="{{ route('login') }}">Sign In</a> / <a href="{{ route('register') }}">Sign up</a></button>
+                            </div>
                         @endguest
 
                         @auth
@@ -203,7 +203,7 @@
     @include('front.include.left_sidebar')
 
 
-{{--        {{ dd(request()->path("/login")) }}--}}
+    {{--        {{ dd(request()->path("/login")) }}--}}
     <!-- end Sidebar  -->
 
         <!-- Page Content  -->
@@ -232,35 +232,35 @@
             </section>
             <!--end email subscribe-->
 
-        <!--pay us with-->
-        <div class="payment-delivery">
-            <div class="row mr-0 display_sm_style">
-                <div class="col-md-6">
-                    <div class="left-side-content">
-                        <div class="single">
-                            <img src="{{ asset('images/fast-delivery.png') }}" alt="">
-                            <p>30 min delivery</p>
-                        </div>
-                        <div class="single">
-                            <img src="{{ asset('images/pay.png') }}" alt="">
-                            <p>cash on delivery</p>
+            <!--pay us with-->
+            <div class="payment-delivery">
+                <div class="row mr-0 display_sm_style">
+                    <div class="col-md-6">
+                        <div class="left-side-content">
+                            <div class="single">
+                                <img src="{{ asset('images/fast-delivery.png') }}" alt="">
+                                <p>30 min delivery</p>
+                            </div>
+                            <div class="single">
+                                <img src="{{ asset('images/pay.png') }}" alt="">
+                                <p>cash on delivery</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="right-side-content">
-                        <ul>
-                            <li>Pay With</li>
-                            <li><img src="{{ asset('images/paypal.png') }}" alt=""></li>
-                            <li><img src="{{ asset('images/money.png') }}" alt=""></li>
-                            <li><img src="{{ asset('images/visa.png') }}" alt=""></li>
-                            <li><img src="{{ asset('images/taka.png') }}" alt=""></li>
-                        </ul>
+                    <div class="col-md-6">
+                        <div class="right-side-content">
+                            <ul>
+                                <li>Pay With</li>
+                                <li><img src="{{ asset('images/paypal.png') }}" alt=""></li>
+                                <li><img src="{{ asset('images/money.png') }}" alt=""></li>
+                                <li><img src="{{ asset('images/visa.png') }}" alt=""></li>
+                                <li><img src="{{ asset('images/taka.png') }}" alt=""></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!--pay us with-->
+            <!--pay us with-->
 
             <select id="custom-translate" style="display:none;">
                 <option value="">Select Language</option>
@@ -273,8 +273,8 @@
 
 
 
-{{--        @include('front.include.footer')--}}
-        @include('front.include.new_footer')
+            {{--        @include('front.include.footer')--}}
+            @include('front.include.new_footer')
         </div>
     </div>
 
@@ -557,12 +557,18 @@
 
     function loadGoogleTranslate(){
         new google.translate.TranslateElement(
-        {
-            pageLanguage: 'en',
-            includedLanguages: 'en,bn',
-        },
-        "google_element");
+            {
+                pageLanguage: 'en',
+                includedLanguages: 'en,bn',
+            },
+            "google_element");
     }
+
+    console.log('calling')
+
+    document.getElementById(":0.targetLanguage");
+
+    $("iframe").contents().find('.goog-te-menu2').css('border', '1px solid #17548d');
 
 </script>
 

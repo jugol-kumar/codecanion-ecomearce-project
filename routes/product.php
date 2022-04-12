@@ -74,7 +74,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth:admin','permission']],funct
 
   // get sub category under a category in ajax call you may pass a additional ?edit_time peram
 
-  Route::get('get-subcategory/{category_id}','Product\SubCategoryController@getSubCategory');
+  Route::get('get-subcategory/{category_id}','Product\SubcategoryController@getSubCategory');
   Route::get('get-sizes/{category_id}','Product\SizeController@getSizeByCategory');
   // get sub sub category under a subcategory
   Route::get('get-sub-subcategory/{sub_category_id}','Product\SubSubCategoryController@getSubSubCategory');
